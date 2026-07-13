@@ -1,0 +1,1047 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="九本鹦鹉与鸟类资料交叉整理的完整饲养指南：营养、环境、行为、健康监测、急救和手养风险。">
+  <title>鹦鹉饲养指南｜九本资料综合版</title>
+  <style>
+    :root {
+      --paper: #f4efe4;
+      --paper-2: #fffaf0;
+      --ink: #17312a;
+      --muted: #66736b;
+      --green: #1f5a46;
+      --green-2: #2f795c;
+      --leaf: #cddcba;
+      --amber: #d99732;
+      --coral: #d85c4a;
+      --red-soft: #f8ddd7;
+      --line: #d8d1c2;
+      --shadow: 0 12px 36px rgba(45, 62, 53, .11);
+      --radius: 20px;
+      color-scheme: light;
+    }
+
+    [data-theme="dark"] {
+      --paper: #121c19;
+      --paper-2: #1a2723;
+      --ink: #edf4ec;
+      --muted: #a9b8b0;
+      --green: #8bc7a5;
+      --green-2: #a8d7b9;
+      --leaf: #2f493d;
+      --amber: #efb65c;
+      --coral: #ff8a75;
+      --red-soft: #4a2a27;
+      --line: #34463f;
+      --shadow: 0 12px 36px rgba(0, 0, 0, .23);
+      color-scheme: dark;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background:
+        radial-gradient(circle at 88% 4%, rgba(217,151,50,.14), transparent 25rem),
+        radial-gradient(circle at 6% 52%, rgba(83,132,94,.11), transparent 28rem),
+        var(--paper);
+      color: var(--ink);
+      font-family: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", system-ui, sans-serif;
+      line-height: 1.72;
+      text-rendering: optimizeLegibility;
+    }
+
+    a { color: inherit; }
+    button, input { font: inherit; }
+    button { color: inherit; }
+    .progress {
+      position: fixed;
+      inset: 0 0 auto 0;
+      z-index: 100;
+      height: 4px;
+      background: transparent;
+    }
+    .progress span {
+      display: block;
+      width: 0;
+      height: 100%;
+      background: linear-gradient(90deg, var(--amber), var(--coral));
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      min-height: 58px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 9px clamp(16px, 4vw, 48px);
+      border-bottom: 1px solid var(--line);
+      background: color-mix(in srgb, var(--paper) 89%, transparent);
+      backdrop-filter: blur(18px);
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-width: max-content;
+      font-weight: 800;
+      letter-spacing: .04em;
+    }
+    .brand-mark {
+      width: 35px;
+      height: 35px;
+      display: grid;
+      place-items: center;
+      border-radius: 50% 50% 44% 56%;
+      background: var(--green);
+      color: var(--paper-2);
+      transform: rotate(-6deg);
+      box-shadow: 0 5px 14px rgba(31,90,70,.25);
+    }
+    .brand-mark span { transform: rotate(6deg); }
+    .search {
+      position: relative;
+      flex: 1;
+      max-width: 620px;
+      margin-inline: auto;
+    }
+    .search input {
+      width: 100%;
+      min-height: 39px;
+      padding: 8px 38px 8px 40px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      outline: none;
+      background: var(--paper-2);
+      color: var(--ink);
+    }
+    .search input:focus { border-color: var(--green-2); box-shadow: 0 0 0 3px color-mix(in srgb, var(--green) 15%, transparent); }
+    .search::before { content: "⌕"; position: absolute; left: 15px; top: 5px; font-size: 22px; color: var(--muted); }
+    .search-clear {
+      position: absolute;
+      right: 10px;
+      top: 6px;
+      border: 0;
+      background: transparent;
+      cursor: pointer;
+      color: var(--muted);
+    }
+    .actions { display: flex; gap: 7px; }
+    .icon-btn {
+      min-width: 39px;
+      min-height: 39px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--line);
+      border-radius: 50%;
+      background: var(--paper-2);
+      cursor: pointer;
+    }
+    .icon-btn:hover { border-color: var(--green); transform: translateY(-1px); }
+
+    .shell {
+      width: min(1440px, 100%);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 246px minmax(0, 1fr);
+      gap: clamp(24px, 4vw, 58px);
+      padding: 0 clamp(18px, 4vw, 56px) 80px;
+    }
+    .side {
+      position: sticky;
+      top: 76px;
+      align-self: start;
+      max-height: calc(100vh - 92px);
+      overflow: auto;
+      padding: 28px 0 40px;
+      scrollbar-width: thin;
+    }
+    .side-label {
+      margin: 0 0 9px 12px;
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+    .toc { display: grid; gap: 3px; }
+    .toc a {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      padding: 8px 12px;
+      border-radius: 10px;
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 14px;
+      transition: .18s ease;
+    }
+    .toc a::before { content: ""; width: 6px; height: 6px; border: 1.5px solid currentColor; border-radius: 50%; }
+    .toc a:hover, .toc a.active { background: var(--paper-2); color: var(--green); font-weight: 700; }
+    .side-emergency {
+      display: block;
+      margin-top: 18px;
+      padding: 12px 14px;
+      border-radius: 13px;
+      background: var(--coral);
+      color: #fff;
+      text-decoration: none;
+      font-weight: 800;
+      text-align: center;
+      box-shadow: 0 7px 20px color-mix(in srgb, var(--coral) 28%, transparent);
+    }
+
+    main { min-width: 0; }
+    .hero {
+      min-height: 535px;
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(280px, .8fr);
+      align-items: center;
+      gap: clamp(24px, 5vw, 72px);
+      padding: clamp(50px, 8vw, 112px) 0 58px;
+    }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 18px;
+      color: var(--green);
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: .13em;
+    }
+    .eyebrow::before { content: ""; width: 28px; height: 2px; background: var(--amber); }
+    h1 {
+      margin: 0;
+      max-width: 700px;
+      font-family: "Songti SC", "STSong", "Noto Serif SC", serif;
+      font-size: clamp(44px, 7.4vw, 90px);
+      line-height: .98;
+      letter-spacing: -.05em;
+      font-weight: 800;
+    }
+    h1 em { color: var(--green); font-style: normal; }
+    .lead {
+      max-width: 680px;
+      margin: 25px 0 24px;
+      color: var(--muted);
+      font-size: clamp(16px, 2vw, 20px);
+    }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 44px;
+      padding: 9px 17px;
+      border: 1px solid var(--green);
+      border-radius: 999px;
+      background: var(--green);
+      color: var(--paper-2);
+      text-decoration: none;
+      font-weight: 800;
+    }
+    .button.ghost { background: transparent; color: var(--green); }
+    .hero-art {
+      position: relative;
+      width: min(380px, 100%);
+      aspect-ratio: 1;
+      margin: auto;
+      border: 1px solid var(--line);
+      border-radius: 48% 52% 43% 57%;
+      background:
+        radial-gradient(circle at 54% 40%, var(--amber) 0 11%, transparent 11.5%),
+        radial-gradient(ellipse at 52% 57%, var(--green) 0 30%, transparent 30.5%),
+        var(--leaf);
+      box-shadow: var(--shadow);
+      transform: rotate(4deg);
+      overflow: hidden;
+    }
+    .hero-art::before {
+      content: "";
+      position: absolute;
+      width: 40%;
+      height: 62%;
+      left: 29%;
+      top: 18%;
+      border-radius: 60% 45% 55% 45%;
+      background:
+        radial-gradient(circle at 68% 15%, #101a16 0 3%, transparent 3.5%),
+        linear-gradient(145deg, #f2c24e 0 24%, #3c8f67 24% 57%, #17604c 57%);
+      transform: rotate(-10deg);
+      box-shadow: inset -12px -12px 0 rgba(0,0,0,.09);
+    }
+    .hero-art::after {
+      content: "";
+      position: absolute;
+      width: 70%;
+      height: 8px;
+      left: 15%;
+      bottom: 22%;
+      border-radius: 99px;
+      background: #8b6541;
+      transform: rotate(-8deg);
+      box-shadow: -100px 35px 0 -2px color-mix(in srgb, var(--green) 38%, transparent),
+                  110px -110px 0 12px color-mix(in srgb, var(--amber) 30%, transparent);
+    }
+    .art-note {
+      position: absolute;
+      z-index: 2;
+      right: -6px;
+      bottom: 5px;
+      max-width: 185px;
+      padding: 12px 15px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: var(--paper-2);
+      box-shadow: var(--shadow);
+      font-size: 13px;
+      line-height: 1.5;
+      transform: rotate(-4deg);
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      margin-bottom: 90px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: var(--line);
+      box-shadow: var(--shadow);
+    }
+    .stat { padding: 22px; background: var(--paper-2); text-align: center; }
+    .stat strong { display: block; color: var(--green); font-family: Georgia, serif; font-size: clamp(26px, 4vw, 42px); line-height: 1.1; }
+    .stat span { color: var(--muted); font-size: 13px; }
+
+    .guide-section {
+      position: relative;
+      scroll-margin-top: 78px;
+      margin-bottom: 100px;
+    }
+    .section-head {
+      display: grid;
+      grid-template-columns: 62px 1fr;
+      gap: 18px;
+      align-items: start;
+      margin-bottom: 28px;
+    }
+    .num {
+      width: 56px;
+      height: 56px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--line);
+      border-radius: 50%;
+      background: var(--paper-2);
+      color: var(--green);
+      font-family: Georgia, serif;
+      font-weight: 700;
+      box-shadow: 0 6px 20px rgba(45,62,53,.07);
+    }
+    h2 {
+      margin: 0 0 7px;
+      font-family: "Songti SC", "STSong", "Noto Serif SC", serif;
+      font-size: clamp(29px, 4.2vw, 48px);
+      line-height: 1.12;
+      letter-spacing: -.025em;
+    }
+    h3 { margin: 0 0 10px; font-size: 18px; line-height: 1.4; }
+    h4 { margin: 0 0 6px; font-size: 15px; }
+    p { margin: 0 0 13px; }
+    .section-intro { max-width: 820px; color: var(--muted); font-size: 17px; }
+    .grid-2, .grid-3, .grid-4 { display: grid; gap: 16px; }
+    .grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .grid-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    .card {
+      padding: 23px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: color-mix(in srgb, var(--paper-2) 93%, transparent);
+      box-shadow: 0 7px 28px rgba(45,62,53,.055);
+    }
+    .card p:last-child, .card ul:last-child { margin-bottom: 0; }
+    .card .icon { display: inline-grid; place-items: center; width: 36px; height: 36px; margin-bottom: 12px; border-radius: 11px; background: var(--leaf); font-size: 19px; }
+    .card.accent { border-top: 4px solid var(--amber); }
+    .card.risk { border-color: color-mix(in srgb, var(--coral) 48%, var(--line)); background: var(--red-soft); }
+    .muted { color: var(--muted); }
+    .small { font-size: 13px; }
+    .source {
+      display: inline-flex;
+      align-items: center;
+      margin: 4px 4px 0 0;
+      padding: 3px 8px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: var(--muted);
+      background: var(--paper);
+      font-size: 11px;
+      line-height: 1.4;
+    }
+    .pill {
+      display: inline-block;
+      margin: 2px 4px 2px 0;
+      padding: 4px 9px;
+      border-radius: 999px;
+      background: var(--leaf);
+      color: var(--green);
+      font-size: 12px;
+      font-weight: 800;
+    }
+    ul.clean { margin: 8px 0; padding-left: 20px; }
+    ul.clean li { margin: 5px 0; }
+    .callout {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 14px;
+      align-items: start;
+      margin: 18px 0;
+      padding: 18px 20px;
+      border-left: 5px solid var(--amber);
+      border-radius: 4px var(--radius) var(--radius) 4px;
+      background: var(--paper-2);
+      box-shadow: 0 7px 25px rgba(45,62,53,.05);
+    }
+    .callout.danger { border-color: var(--coral); background: var(--red-soft); }
+    .callout .signal { font-size: 25px; line-height: 1; }
+    .callout strong { display: block; margin-bottom: 3px; }
+
+    .decision {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin: 24px 0;
+    }
+    .decision .step {
+      position: relative;
+      min-height: 130px;
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: var(--paper-2);
+    }
+    .decision .step:not(:last-child)::after {
+      content: "→";
+      position: absolute;
+      right: -20px;
+      top: 45%;
+      z-index: 2;
+      width: 26px;
+      height: 26px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--amber);
+      color: #fff;
+      font-weight: 900;
+    }
+    .step b { display: block; margin-bottom: 8px; color: var(--green); }
+
+    .plate {
+      position: relative;
+      min-height: 370px;
+      overflow: hidden;
+      padding: 28px;
+      border: 1px solid var(--line);
+      border-radius: 30px;
+      background: var(--paper-2);
+      box-shadow: var(--shadow);
+    }
+    .plate-visual { position: relative; width: 230px; height: 230px; margin: 18px auto; border-radius: 50%; background: conic-gradient(var(--green) 0 65%, var(--amber) 65% 88%, #8e6746 88% 100%); box-shadow: inset 0 0 0 12px var(--paper-2), 0 12px 25px rgba(45,62,53,.13); }
+    .plate-visual::after { content: "主粮"; position: absolute; inset: 0; display: grid; place-items: center; color: #fff; font-weight: 900; font-size: 22px; text-shadow: 0 2px 5px rgba(0,0,0,.22); }
+    .legend { display: grid; gap: 8px; }
+    .legend span::before { content: ""; display: inline-block; width: 10px; height: 10px; margin-right: 8px; border-radius: 50%; background: var(--green); }
+    .legend span:nth-child(2)::before { background: var(--amber); }
+    .legend span:nth-child(3)::before { background: #8e6746; }
+
+    table { width: 100%; border-collapse: collapse; background: var(--paper-2); }
+    th, td { padding: 13px 15px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+    th { color: var(--green); font-size: 13px; }
+    tr:last-child td { border-bottom: 0; }
+    .table-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: var(--radius); box-shadow: 0 7px 25px rgba(45,62,53,.05); }
+
+    details {
+      border: 1px solid var(--line);
+      border-radius: 15px;
+      background: var(--paper-2);
+      overflow: clip;
+    }
+    details + details { margin-top: 9px; }
+    summary {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      padding: 15px 18px;
+      cursor: pointer;
+      font-weight: 800;
+      list-style: none;
+    }
+    summary::-webkit-details-marker { display: none; }
+    summary::after { content: "+"; color: var(--green); font-size: 21px; }
+    details[open] summary::after { content: "−"; }
+    details[open] summary { border-bottom: 1px solid var(--line); }
+    .detail-body { padding: 18px; }
+
+    .emergency {
+      padding: clamp(26px, 5vw, 48px);
+      border-radius: 28px;
+      background: #7f2f27;
+      color: #fff8ee;
+      box-shadow: 0 16px 42px rgba(127,47,39,.24);
+    }
+    .emergency h2 { color: #fff; }
+    .emergency .section-intro { color: #f3d8d1; }
+    .emergency .num { border-color: rgba(255,255,255,.25); background: rgba(255,255,255,.1); color: #fff; }
+    .red-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; margin: 25px 0; overflow: hidden; border: 1px solid rgba(255,255,255,.18); border-radius: 16px; background: rgba(255,255,255,.15); }
+    .red-grid div { padding: 16px; background: rgba(255,255,255,.06); }
+    .red-grid strong { display: block; margin-bottom: 4px; color: #ffd29a; }
+    .emergency .callout { color: var(--ink); }
+
+    .checklist { display: grid; gap: 8px; }
+    .check-item {
+      display: grid;
+      grid-template-columns: 22px 1fr;
+      gap: 10px;
+      align-items: start;
+      padding: 10px 12px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: var(--paper-2);
+      cursor: pointer;
+    }
+    .check-item input { width: 18px; height: 18px; margin-top: 3px; accent-color: var(--green); }
+    .check-item:has(input:checked) span { color: var(--muted); text-decoration: line-through; }
+    .reset-checks { margin-top: 12px; border: 0; background: transparent; color: var(--green); font-weight: 800; cursor: pointer; }
+
+    .species { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }
+    .species .card { min-height: 214px; }
+    .species-name { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+    .species-name span { color: var(--amber); font-size: 24px; }
+
+    .method {
+      padding: clamp(24px, 4vw, 40px);
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      background: var(--ink);
+      color: var(--paper-2);
+    }
+    .method h2, .method h3 { color: var(--paper-2); }
+    .method .muted { color: color-mix(in srgb, var(--paper-2) 68%, transparent); }
+    .source-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-top: 20px; }
+    .source-item { padding: 14px 16px; border: 1px solid color-mix(in srgb, var(--paper-2) 18%, transparent); border-radius: 13px; }
+    .source-item strong { display: block; color: #f4c36b; }
+    .source-item span { font-size: 13px; color: color-mix(in srgb, var(--paper-2) 72%, transparent); }
+
+    .no-results { display: none; margin: 40px 0; padding: 28px; border: 1px dashed var(--line); border-radius: var(--radius); text-align: center; color: var(--muted); }
+    mark { padding: 0 2px; border-radius: 3px; background: #ffe079; color: #243129; }
+    footer { padding: 15px 0 70px; color: var(--muted); font-size: 13px; text-align: center; }
+
+    @media (max-width: 1050px) {
+      .shell { grid-template-columns: 1fr; }
+      .side { display: none; }
+      .hero { padding-top: 65px; }
+      .grid-4 { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 760px) {
+      .topbar { padding-inline: 12px; }
+      .brand b { display: none; }
+      .actions .print { display: none; }
+      .shell { padding-inline: 15px; }
+      .hero { min-height: auto; grid-template-columns: 1fr; padding-top: 48px; }
+      .hero-art { width: 245px; }
+      .art-note { right: 0; }
+      .stats { margin-top: 45px; margin-bottom: 70px; }
+      .stat { padding: 16px 8px; }
+      .section-head { grid-template-columns: 46px 1fr; gap: 12px; }
+      .num { width: 44px; height: 44px; }
+      .grid-2, .grid-3, .grid-4, .species, .source-list { grid-template-columns: 1fr; }
+      .decision { grid-template-columns: 1fr; }
+      .decision .step { min-height: auto; }
+      .decision .step:not(:last-child)::after { content: "↓"; right: calc(50% - 13px); top: auto; bottom: -20px; }
+      .red-grid { grid-template-columns: 1fr; }
+      .guide-section { margin-bottom: 74px; }
+      h1 { font-size: clamp(46px, 17vw, 70px); }
+    }
+    @media print {
+      :root { --paper: #fff; --paper-2: #fff; --ink: #111; --muted: #444; --line: #ccc; }
+      .topbar, .side, .progress, .hero-actions, .reset-checks { display: none !important; }
+      body { background: #fff; font-size: 10.5pt; }
+      .shell { display: block; width: 100%; padding: 0; }
+      .hero { min-height: auto; grid-template-columns: 1fr; padding: 20px 0; }
+      .hero-art { display: none; }
+      .stats { margin-bottom: 32px; box-shadow: none; }
+      .guide-section { break-before: page; margin-bottom: 25px; }
+      .card, .table-wrap, details, .method { break-inside: avoid; box-shadow: none; }
+      details .detail-body { display: block !important; }
+      .emergency { background: #fff; color: #111; border: 3px solid #7f2f27; box-shadow: none; }
+      .emergency h2, .emergency .section-intro { color: #111; }
+      .red-grid div { color: #111; background: #fff; }
+      .method { background: #fff; color: #111; }
+      .method h2, .method h3, .method .muted, .source-item span { color: #111; }
+      footer { padding-bottom: 0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="progress" aria-hidden="true"><span id="progressBar"></span></div>
+  <header class="topbar">
+    <div class="brand"><span class="brand-mark"><span>🦜</span></span><b>鹦鹉生活手册</b></div>
+    <label class="search">
+      <span class="sr-only"></span>
+      <input id="searchInput" type="search" placeholder="搜索食物、症状、训练……" aria-label="搜索本指南">
+      <button class="search-clear" id="searchClear" type="button" aria-label="清空搜索">×</button>
+    </label>
+    <div class="actions">
+      <button class="icon-btn" id="themeToggle" type="button" title="切换明暗主题" aria-label="切换明暗主题">◐</button>
+      <button class="icon-btn print" id="printButton" type="button" title="打印或存为 PDF" aria-label="打印">⌘</button>
+    </div>
+  </header>
+
+  <div class="shell">
+    <aside class="side" aria-label="章节导航">
+      <p class="side-label">目录</p>
+      <nav class="toc" id="toc">
+        <a href="#start">先做对选择</a>
+        <a href="#home">住所与安全</a>
+        <a href="#food">科学饮食</a>
+        <a href="#routine">每日节律</a>
+        <a href="#behavior">行为与训练</a>
+        <a href="#health">健康监测</a>
+        <a href="#emergency">急症与急救</a>
+        <a href="#illness">常见问题</a>
+        <a href="#newbird">新鸟与检疫</a>
+        <a href="#breeding">繁殖管理</a>
+        <a href="#handfeeding">幼鸟手养</a>
+        <a href="#species">种类速览</a>
+        <a href="#checklists">照护清单</a>
+        <a href="#sources">资料与方法</a>
+      </nav>
+      <a class="side-emergency" href="#emergency">出现急症怎么办</a>
+    </aside>
+
+    <main id="main">
+      <section class="hero searchable">
+        <div>
+          <div class="eyebrow">九本资料 · 跨书核对 · 家庭实用版</div>
+          <h1>让鹦鹉<em>好好生活</em>，不只是活着</h1>
+          <p class="lead">一份从 2,136 页兽医临床、行为、图鉴与日常照护资料中提炼的行动指南。先讲安全，再讲营养；先读懂鸟，再改变鸟。</p>
+          <div class="hero-actions">
+            <a class="button" href="#start">开始阅读 <span>↓</span></a>
+            <a class="button ghost" href="#emergency">直接看急症处理</a>
+          </div>
+        </div>
+        <div class="hero-art" aria-label="抽象鹦鹉插画">
+          <div class="art-note"><strong>核心原则</strong><br>稳定环境 · 均衡饮食<br>尊重选择 · 及早就医</div>
+        </div>
+      </section>
+
+      <div class="stats searchable" aria-label="资料规模">
+        <div class="stat"><strong>9</strong><span>本中文鹦鹉与鸟类资料</span></div>
+        <div class="stat"><strong>2,136</strong><span>页逐页提取与核验</span></div>
+        <div class="stat"><strong>4 层</strong><span>临床 / 饲养 / 行为 / 图鉴</span></div>
+      </div>
+
+      <div class="no-results" id="noResults">没有找到相关内容。试试“牛油果”“张口呼吸”“颗粒粮”或“咬人”。</div>
+
+      <section class="guide-section searchable" id="start">
+        <header class="section-head">
+          <div class="num">01</div>
+          <div><h2>养之前，先做对选择</h2><p class="section-intro">鹦鹉不是“会说话的装饰品”，而是寿命长、社交需求高、会制造噪音与粉尘的野生本能动物。品种越大，通常意味着空间、破坏力、医疗和终身安排都成倍增加。</p></div>
+        </header>
+        <div class="decision">
+          <div class="step"><b>① 时间</b>每天是否有稳定的互动、放飞、清洁和训练时间？出差时谁来照护？</div>
+          <div class="step"><b>② 环境</b>家人、邻居、租房规则能否承受叫声、羽粉、碎屑与啃咬？</div>
+          <div class="step"><b>③ 医疗</b>附近是否有真正接诊鸟类的异宠/鸟类兽医？能否承担检查与急诊？</div>
+          <div class="step"><b>④ 一生</b>小型鹦鹉也可能陪伴十余年，大型种可达数十年；搬家、婚育、养老都要考虑。</div>
+        </div>
+        <div class="grid-3">
+          <article class="card accent"><span class="icon">◎</span><h3>按生活匹配，不按颜值</h3><p>先比较叫声、粉尘、活动量、咬合力、社交依赖、寿命、专科饮食和笼舍尺度，再考虑颜色和说话能力。</p></article>
+          <article class="card accent"><span class="icon">⌂</span><h3>来源合法且可追溯</h3><p>拒绝野外捕捉、来路不明与“未断奶更亲人”的销售话术。优先选择健康、已独立进食、来源清楚的个体。</p></article>
+          <article class="card accent"><span class="icon">✚</span><h3>先找到兽医再接鸟</h3><p>把日间门诊、夜间急诊、路线和电话记好；首次检查能建立体重、粪便和基础健康档案。</p></article>
+        </div>
+        <div class="callout"><span class="signal">☞</span><div><strong>“小体型”不等于“低需求”</strong>爱情鸟、太平洋鹦鹉等虽小，仍可能领地性强、咬合坚定；玄凤、虎皮也需要每天社交、觅食和飞行机会。<br><span class="source">世界鹦鹉图鉴：生态与物种差异</span><span class="source">鳥類專科獸醫監修_鸚鵡：饲养前准备</span></div></div>
+      </section>
+
+      <section class="guide-section searchable" id="home">
+        <header class="section-head">
+          <div class="num">02</div>
+          <div><h2>住所：安全比漂亮重要</h2><p class="section-intro">笼子是安全基地，不是整日囚禁处。应尽可能宽大、结构简单、便于彻底清洁，并让鸟能伸展双翼、攀爬和短距离移动。</p></div>
+        </header>
+        <div class="grid-2">
+          <article class="card">
+            <span class="icon">▦</span><h3>笼舍配置</h3>
+            <ul class="clean">
+              <li>栏距与鸟的头部、体型匹配，避免卡头或逃逸。</li>
+              <li>横向空间优先；门锁可靠，金属无锈蚀、剥落或可疑镀层。</li>
+              <li>多种直径、纹理的天然安全木栖杠，脚趾不能长期保持同一姿势。</li>
+              <li>栖杠不要架在食盆水盆正上方；保留清晰活动路线。</li>
+              <li>笼底铺白纸，便于每天观察粪便；不使用香味垫材、猫砂或易吞食填料。</li>
+            </ul>
+            <span class="source">鸟类基础临床手册 PDF 47–61</span>
+          </article>
+          <article class="card">
+            <span class="icon">♨</span><h3>摆放与空气</h3>
+            <ul class="clean">
+              <li>明亮、通风但无持续穿堂风；至少一侧有遮挡，让鸟能退避。</li>
+              <li>远离厨房、浴室蒸汽、烟雾、香薰、蚊香、喷雾、油漆和清洁剂挥发物。</li>
+              <li>避免长时间暴晒和骤冷骤热；晒太阳时必须有阴影与水。</li>
+              <li>不把笼子放在电视音箱旁、空调出风口或人流持续惊扰处。</li>
+            </ul>
+            <span class="source">鸟医生的养鸟小百科：居家危险</span>
+          </article>
+        </div>
+        <div class="callout danger"><span class="signal">!</span><div><strong>厨房对鸟类尤其危险</strong>过热的不粘涂层/PTFE、油烟、一氧化碳、烤箱自洁程序和气雾剂都可能造成快速致命的呼吸道中毒。发生疑似暴露：立刻转移到新鲜空气，减少抓持，联系鸟类兽医急诊。<br><span class="source">鸟类基础临床手册 PDF 129–131</span></div></div>
+        <div class="grid-4">
+          <article class="card"><h3>每天</h3><p>换饮水、清洗食盆、换笼底纸；检查粪便、玩具破损和可吞小件。</p></article>
+          <article class="card"><h3>每周</h3><p>清洗笼盘、栏杆、栖杠和常用玩具；充分冲净并彻底干燥。</p></article>
+          <article class="card"><h3>轮换</h3><p>一次只换部分玩具，保留熟悉物；新物先放远处，让鸟主动靠近。</p></article>
+          <article class="card"><h3>外出</h3><p>提前训练运输箱；车内固定、通风、遮一部分视线，绝不单独留在车里。</p></article>
+        </div>
+      </section>
+
+      <section class="guide-section searchable" id="food">
+        <header class="section-head">
+          <div class="num">03</div>
+          <div><h2>饮食：从“吃饱”升级到“吃对”</h2><p class="section-intro">长期单一谷物或葵花籽会把鸟推向肥胖、脂肪肝、钙与维生素 A 等营养问题。对多数常见鹦鹉，完整配方粮是营养骨架，蔬菜提供多样性，坚果和种子适合作为少量奖励与觅食材料。</p></div>
+        </header>
+        <div class="grid-2">
+          <div class="plate">
+            <h3>多数常见鹦鹉的“餐盘思路”</h3>
+            <div class="plate-visual" aria-hidden="true"></div>
+            <div class="legend">
+              <span><strong>约 60–70% 完整配方粮</strong>：选择适合物种与粒径的正规产品</span>
+              <span><strong>约 20–30% 新鲜蔬菜</strong>：深绿叶菜、彩椒、胡萝卜、南瓜等轮换</span>
+              <span><strong>约 5–10% 种子/坚果/水果</strong>：训练和觅食奖励，按体重调整</span>
+            </div>
+            <p class="small muted" style="margin-top:14px">这是家庭实用起点，不是所有物种的固定处方。吸蜜鹦鹉需专用花蜜配方；某些生态型、患病或繁殖个体应由兽医定制。</p>
+          </div>
+          <div>
+            <article class="card"><h3>换粮要慢，体重来把关</h3><p>把新食物从熟悉食物旁边、食盆上层、觅食玩具或训练奖励逐步引入。不要突然撤掉旧食物“逼饿”。换粮期每天观察实际摄入、精神、粪便与克重；出现明显或快速下降，立即暂停并联系兽医。</p><span class="source">鸟类基础临床手册 PDF 95–99</span></article>
+            <div class="callout"><span class="signal">⚖</span><div><strong>用克重，不用目测</strong>固定在每天早餐前、排便后称重；使用稳定的克重电子秤和训练好的站秤动作。单次数字看趋势，连续偏离个体基线更重要。</div></div>
+          </div>
+        </div>
+
+        <h3 style="margin-top:32px">明确避开</h3>
+        <div class="grid-3">
+          <article class="card risk"><h3>高风险食物</h3><p>牛油果、巧克力、咖啡因饮料、酒精、葱蒜类、果核与种仁；来源不明的野生植物和蘑菇也不要试。</p></article>
+          <article class="card risk"><h3>人类零食</h3><p>高盐、高糖、高油、油炸、腌制食品与含木糖醇或其他代糖的加工品，都不应进入日常食谱。</p></article>
+          <article class="card risk"><h3>补充剂误区</h3><p>不要在完整配方粮基础上随意叠加维生素或钙粉；脂溶性维生素过量也会中毒。补充剂应有兽医指征。</p></article>
+        </div>
+        <div class="callout"><span class="signal">i</span><div><strong>水果不是“无限量健康食品”</strong>水果含糖高，可作为少量多样化食物；蔬菜应占新鲜食物的大头。吸蜜鹦鹉等特殊物种例外，需用专用方案。<br><span class="source">鸟类基础临床手册 PDF 92–105</span><span class="source">鹦鹉有话说 PDF 45：毒性食物与植物</span></div></div>
+      </section>
+
+      <section class="guide-section searchable" id="routine">
+        <header class="section-head">
+          <div class="num">04</div>
+          <div><h2>一天的节律</h2><p class="section-intro">可预期的作息能降低警戒和挫折。规律不是僵化：每天保留“吃、飞、找、学、休息”的骨架，再让玩具和觅食方式保持新鲜。</p></div>
+        </header>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>时段</th><th>建议动作</th><th>同时观察</th></tr></thead>
+            <tbody>
+              <tr><td><strong>晨起</strong></td><td>开灯/拉帘后先看姿势与呼吸；排便后称重，换水，提供主粮和部分新鲜食物。</td><td>隔夜粪便、食欲、鸣叫、抓握是否与平日一致。</td></tr>
+              <tr><td><strong>白天</strong></td><td>安全放飞、社交和短训练；把一部分食物藏进纸包、觅食盒或安全枝叶中。</td><td>飞行是否对称，是否易喘、撞击、异常嗜睡。</td></tr>
+              <tr><td><strong>傍晚</strong></td><td>收走易腐鲜食，补充干净水；做轻松的回笼/运输箱训练，清理笼底。</td><td>当日总摄入、粪便数量与形态、活动意愿。</td></tr>
+              <tr><td><strong>夜间</strong></td><td>提供连续、安静、昏暗的睡眠环境，避免电视声和频繁开灯。</td><td>夜惊、持续叫声、呼吸声或笼底跌落。</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="small muted" style="margin-top:12px">每只鸟的作息会随物种、季节、家庭和健康状态变化。长期繁殖行为个体可能需要在鸟类兽医指导下调整光照；不要自行用极端遮光代替诊治。</p>
+      </section>
+
+      <section class="guide-section searchable" id="behavior">
+        <header class="section-head">
+          <div class="num">05</div>
+          <div><h2>行为：先问“为什么”，再问“怎么改”</h2><p class="section-intro">尖叫、啃咬、护笼、拒绝上手常常是正常行为在不合适的情境中被强化，或是恐惧、疼痛、睡眠不足与缺乏选择的表达。惩罚只能压住信号，不能解决原因。</p></div>
+        </header>
+        <div class="grid-3">
+          <article class="card"><span class="icon">A</span><h3>前因 Antecedent</h3><p>行为发生前有什么？陌生人靠近、手伸入笼、主人离开、饥饿、噪音，还是筑巢空间？</p></article>
+          <article class="card"><span class="icon">B</span><h3>行为 Behavior</h3><p>只描述能看见的动作：身体前倾、瞳孔缩放、张嘴、扑咬；不要写“故意报复”。</p></article>
+          <article class="card"><span class="icon">C</span><h3>后果 Consequence</h3><p>行为后得到了什么？人退开、被抱起、食物、注视或叫喊？这可能让行为更常出现。</p></article>
+        </div>
+        <div class="grid-2" style="margin-top:16px">
+          <article class="card accent">
+            <h3>值得优先训练的 8 件事</h3>
+            <span class="pill">上手</span><span class="pill">下手</span><span class="pill">定点</span><span class="pill">回笼</span><span class="pill">站秤</span><span class="pill">运输箱</span><span class="pill">触碰脚/翅</span><span class="pill">接受毛巾与喂药器</span>
+            <p style="margin-top:12px">每次 1–3 分钟，在鸟还想继续时结束。把目标拆成很小步骤，用它真正喜欢的奖励强化。</p>
+          </article>
+          <article class="card accent">
+            <h3>尊重“不要”</h3>
+            <p>看到身体后撤、羽毛紧贴、张嘴、尾巴张开、瞳孔快速缩放等信号就降低难度或退开。允许拒绝，是建立自愿合作的前提。</p>
+            <p><strong>抚摸以头颈为主</strong>；长期摸背、腹、翅下或口对口喂食，可能被当成伴侣行为并诱发繁殖与护偶。</p>
+          </article>
+        </div>
+        <details style="margin-top:18px">
+          <summary>咬人时的处理顺序</summary>
+          <div class="detail-body"><ol class="clean"><li>先排除疼痛、疾病、发情与睡眠不足。</li><li>记录咬前情境和身体语言，找到可预测的触发点。</li><li>在咬发生前就停下或换任务；训练“定点”“触碰目标棒”等替代行为。</li><li>保持反应平静，避免拍打、弹嘴、喷水、摇笼或大声恐吓。</li><li>持续严重或突然改变，联系鸟类兽医和正向强化行为顾问。</li></ol></div>
+        </details>
+        <details>
+          <summary>尖叫时的处理顺序</summary>
+          <div class="detail-body"><p>先确认叫声是否为正常晨昏联络、恐惧警报或求助。增加睡眠、运动、觅食和可预测互动；在安静或较柔和的声音出现时及时奖励。不要用持续回应无意中训练“越叫越有人来”。</p></div>
+        </details>
+        <span class="source">鸟类基础临床手册 PDF 80–91</span><span class="source">当然问鹦鹉才清楚：身体语言与选择</span><span class="source">鹦鹉有话说：行为案例</span>
+      </section>
+
+      <section class="guide-section searchable" id="health">
+        <header class="section-head">
+          <div class="num">06</div>
+          <div><h2>健康监测：发现“和平时不一样”</h2><p class="section-intro">鸟类会隐藏虚弱，等到明显生病往往已不轻。家庭监测的价值不是自行确诊，而是更早识别变化、向兽医提供高质量线索。</p></div>
+        </header>
+        <div class="grid-4">
+          <article class="card"><span class="icon">⚖</span><h3>体重</h3><p>同一时间、同一秤、记录克重。连续下降或显著偏离个体基线比“还在正常范围”更重要。</p></article>
+          <article class="card"><span class="icon">◉</span><h3>粪便</h3><p>看数量、体积、颜色、成形粪便/白色尿酸盐/透明尿液三部分；同时结合食物和饮水变化。</p></article>
+          <article class="card"><span class="icon">◌</span><h3>呼吸</h3><p>静息时不应张口、明显尾摆、伸颈或发出呼吸音。运动后恢复时间也值得记录。</p></article>
+          <article class="card"><span class="icon">✦</span><h3>行为</h3><p>食欲、鸣叫、抓握、飞行、理羽和社交突然改变，都可能是疾病或疼痛的第一信号。</p></article>
+        </div>
+        <div class="callout"><span class="signal">📷</span><div><strong>给兽医准备“可用的资料”</strong>记录开始时间、体重曲线、食物与可能暴露；拍下呼吸和异常动作视频、粪便照片。保留疑似毒物包装。不要为了取样延误急诊。</div></div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>粪便变化</th><th>可能的解释</th><th>怎么做</th></tr></thead>
+            <tbody>
+              <tr><td>吃甜菜/莓果后暂时变色</td><td>食物色素</td><td>精神、食欲正常可短时观察，记录所吃食物。</td></tr>
+              <tr><td>透明液体增多但成形粪便仍在</td><td>多尿，可能与水果、饮水、紧张或疾病有关</td><td>不要笼统叫“腹泻”；若持续或伴精神差，尽快就诊。</td></tr>
+              <tr><td>粪便不成形、数量减少或颜色异常持续</td><td>摄入不足、消化道/肝胆等多种问题</td><td>结合体重和食欲，当日联系兽医；禁食或久不排便按急症。</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <span class="source">鸟医生的养鸟小百科 PDF 121–122</span><span class="source">鸟类基础临床手册 PDF 129–131</span>
+      </section>
+
+      <section class="guide-section searchable emergency" id="emergency">
+        <header class="section-head">
+          <div class="num">07</div>
+          <div><h2>这些情况，按急症处理</h2><p class="section-intro">以下任一项都不适合“先观察一晚”。立即联系鸟类/异宠兽医；路上保持安静、通风、少抓持。</p></div>
+        </header>
+        <div class="red-grid">
+          <div><strong>呼吸</strong>张口呼吸、明显尾摆、伸颈喘气、发绀、呼吸音或吸入烟雾/不粘锅气体。</div>
+          <div><strong>意识与姿势</strong>瘫软、抽搐、反应迟钝、无法站杠、长时间待笼底、突然失衡。</div>
+          <div><strong>出血与外伤</strong>持续出血、撞击、猫狗咬抓、骨折、烧伤、坠落或头部创伤。</div>
+          <div><strong>消化与中毒</strong>反复呕吐、疑食毒物/金属/药物、明显腹胀、很久不吃或粪便骤减。</div>
+          <div><strong>繁殖</strong>用力努责、腹部膨大、宽脚站立、呼吸困难、泄殖腔脱出或疑似卡蛋。</div>
+          <div><strong>幼鸟</strong>嗉囊久不排空、无求食反应、食物从鼻孔流出、喘、低体温或突然虚弱。</div>
+        </div>
+        <div class="callout danger"><span class="signal">1</span><div><strong>先打电话，再出发</strong>说明物种、体重、症状、发生时间和可能暴露；确认医院确实接诊鸟类，并按指示前往。</div></div>
+        <div class="grid-3">
+          <article class="card"><h3>安静转运</h3><p>用小而通风的运输箱，底部铺毛巾或纸；虚弱鸟撤掉高栖杠。遮一部分视线，避免反复开箱。</p></article>
+          <article class="card"><h3>保温但不闷热</h3><p>病鸟可在箱体一侧外部提供温和热源，让它能自行远离。若张口喘或翅膀外展，可能过热，应立即调整。</p></article>
+          <article class="card"><h3>出血直接加压</h3><p>用干净纱布持续、温和按压。不要频繁掀开查看，不要向深部伤口撒粉。持续出血立即急诊。</p></article>
+        </div>
+        <div class="callout"><span class="signal">×</span><div><strong>不要强灌水、强塞食、挤嗉囊或自行喂药</strong>虚弱鸟极易误吸；抓持过紧还会限制胸廓运动。也不要等待网络回复后再决定是否就医。<br><span class="source">鸟类基础临床手册 PDF 117–126</span></div></div>
+      </section>
+
+      <section class="guide-section searchable" id="illness">
+        <header class="section-head">
+          <div class="num">08</div>
+          <div><h2>常见问题地图：认方向，不在家确诊</h2><p class="section-intro">同一症状可能来自完全不同的疾病。羽毛差、嗜睡、腹泻或呼吸困难都不能只凭照片定论；鸟类诊断常需要体检、影像、血液、粪便或病原检测。</p></div>
+        </header>
+        <div class="grid-2">
+          <article class="card"><h3>感染性</h3><p><strong>鹦鹉热衣原体、PBFD/圆环病毒、多瘤病毒、鸟博尔纳病毒、细菌、真菌和寄生虫</strong>均可能出现非特异症状。新鸟隔离、卫生和针对性检测比“预防性乱用药”更可靠。</p></article>
+          <article class="card"><h3>营养与代谢</h3><p><strong>肥胖、脂肪肝、低钙、维生素 A 不足</strong>常与长期单一种子、高能量低活动有关。治疗不是只加一种补品，而是体检后重建完整饮食和活动方案。</p></article>
+          <article class="card"><h3>羽毛与皮肤</h3><p>啄羽可能涉及疼痛、皮肤病、感染、营养、激素、环境干燥、无聊或焦虑。戴圈和喷苦味剂若不处理原因，通常不能根治。</p></article>
+          <article class="card"><h3>繁殖与泌尿</h3><p>慢性产蛋、卡蛋和泄殖腔问题可迅速危及生命。反复下蛋需要同时评估光照、巢穴、伴侣关系、饮食、钙代谢和潜在疾病。</p></article>
+        </div>
+        <div class="callout danger"><span class="signal">Rx</span><div><strong>本指南不提供药名剂量</strong>旧版图谱和手养资料中的药物、抗生素、驱虫与侵入性处置未被转写为家庭操作。药物选择取决于物种、体重、器官状态与确诊结果；错误剂量可能致命。<br><span class="source">观赏鸟病诊疗原色图谱：用于症状与病类索引</span><span class="source">鸟类基础临床手册：用于现代诊疗框架</span></div></div>
+      </section>
+
+      <section class="guide-section searchable" id="newbird">
+        <header class="section-head">
+          <div class="num">09</div>
+          <div><h2>新鸟到家：先隔离，再交朋友</h2><p class="section-intro">外表健康不等于没有潜伏病原。新鸟应在独立房间使用独立食盆、清洁工具和空气空间；先照顾原有鸟，再照顾新鸟，之后洗手并更换污染衣物。</p></div>
+        </header>
+        <div class="decision">
+          <div class="step"><b>① 入住隔离区</b>独立房间、用品分开；记录体重、食欲、粪便和精神。</div>
+          <div class="step"><b>② 鸟类兽医检查</b>提供来源、运输、饮食和既往记录；由兽医按物种与风险决定检测。</div>
+          <div class="step"><b>③ 远距离熟悉</b>兽医确认后，先闻声、再隔笼看见；任何压力都退回上一步。</div>
+          <div class="step"><b>④ 受控接触</b>中立空间、双人看护、短时间；永不强迫“必须成为朋友”。</div>
+        </div>
+        <div class="callout"><span class="signal">i</span><div><strong>隔离时长没有一个适合所有家庭的数字</strong>它取决于来源、物种、检查和病原检测结果。让接诊兽医决定解除隔离的条件，比照搬固定天数更稳妥。</div></div>
+      </section>
+
+      <section class="guide-section searchable" id="breeding">
+        <header class="section-head">
+          <div class="num">10</div>
+          <div><h2>繁殖行为：减少诱因，不责怪鸟</h2><p class="section-intro">长日照、高能量食物、暗洞、可撕巢材、全身抚摸和把主人当配偶，都可能让繁殖轴持续被激活。雌鸟即使没有公鸟也会下蛋。</p></div>
+        </header>
+        <div class="grid-3">
+          <article class="card"><h3>移除巢穴线索</h3><p>封住纸箱、柜缝、沙发底和帐篷等暗洞；减少持续撕碎后堆积的巢材。</p></article>
+          <article class="card"><h3>调整互动</h3><p>抚摸限于头颈，不口对口喂食；鼓励与全家互动、独立觅食和训练，不强化“唯一配偶”。</p></article>
+          <article class="card"><h3>检视能量与光照</h3><p>减少高脂奖励，维持稳定睡眠。反复产蛋者的光照调整应由兽医个体化指导。</p></article>
+        </div>
+        <div class="callout danger"><span class="signal">!</span><div><strong>疑似卡蛋是急症</strong>努责、笼底、腹部膨大、宽脚站立、尾摆、呼吸困难或泄殖腔组织外翻，都应立即急诊，不要按摩腹部或自行拉蛋。</div></div>
+      </section>
+
+      <section class="guide-section searchable" id="handfeeding">
+        <header class="section-head">
+          <div class="num">11</div>
+          <div><h2>幼鸟手养：最高风险章节</h2><p class="section-intro">能由健康亲鸟稳定育雏时，亲鸟育雏通常是首选。“从 0 天手养更亲人”不是值得冒险的理由；亲人来自长期安全互动，不来自剥夺正常育雏。</p></div>
+        </header>
+        <div class="callout danger"><span class="signal">⚠</span><div><strong>不要把通用数字当处方</strong>育雏箱温湿度、奶粉浓度、单次量、频率和断奶节奏都随物种、日龄、体重、环境与疾病变化。本指南不提供盲插喂食管、嗉囊穿刺、冲洗或家庭配药步骤。</div></div>
+        <div class="grid-3">
+          <article class="card"><h3>误吸</h3><p>喂食姿势、速度或求食反应不佳，可能让食物进入气道；鼻孔流食、咳喘、呼吸音需立即停喂急诊。</p></article>
+          <article class="card"><h3>嗉囊损伤</h3><p>食物过热可灼伤；器具或灌喂可穿孔。嗉囊久不排空、皮肤变色、渗漏或异味都需兽医处理。</p></article>
+          <article class="card"><h3>感染与营养错误</h3><p>配方、器具卫生、温度和保存不当可引发细菌/真菌问题；自制配方易造成营养不平衡。</p></article>
+        </div>
+        <details style="margin-top:18px">
+          <summary>如果不得不照顾未断奶幼鸟</summary>
+          <div class="detail-body"><ol class="clean"><li>当天联系鸟类兽医或有医疗协作的合格救护人员，确认物种、日龄与当前状态。</li><li>使用专用商业育雏配方和经验证的器具，严格执行该个体的书面方案。</li><li>每次喂食前后称重并记录嗉囊排空、粪便、求食反应与配方批次。</li><li>无求食反应、排空变慢、呕吐、喘、突然失重或低体温时，停止强喂并急诊。</li><li>断奶应由幼鸟逐步自主完成，不能靠减少喂食逼迫。</li></ol></div>
+        </details>
+        <span class="source">鹦鹉0天手养秘籍：用于识别育雏流程与高风险点</span><span class="source">鸟类基础临床手册：误吸、嗉囊与营养并发症</span>
+      </section>
+
+      <section class="guide-section searchable" id="species">
+        <header class="section-head">
+          <div class="num">12</div>
+          <div><h2>常见类型速览</h2><p class="section-intro">以下只用于初筛，不代替具体物种资料。即使同一物种，个体性格、早期经历与健康状态也会造成巨大差异。</p></div>
+        </header>
+        <div class="species">
+          <article class="card"><div class="species-name"><h3>虎皮 / 玄凤</h3><span>◒</span></div><p>体型较小、社交性强，仍需飞行与每日互动。玄凤羽粉较多；虎皮体重变化以克计，更要用精确秤。</p><span class="pill">入门不等于省事</span></article>
+          <article class="card"><div class="species-name"><h3>爱情鸟 / 太平洋</h3><span>◆</span></div><p>体小、精力和领地性常被低估。需清楚边界、正向训练和丰富啃咬材料，多鸟相处不可想当然。</p><span class="pill">小而有主见</span></article>
+          <article class="card"><div class="species-name"><h3>锥尾类</h3><span>◢</span></div><p>活跃、黏人、叫声穿透力强；社交与觅食不足容易转为尖叫和破坏。提前确认居住环境承受度。</p><span class="pill">音量预演</span></article>
+          <article class="card"><div class="species-name"><h3>非洲灰鹦鹉 / 亚马逊</h3><span>●</span></div><p>认知和社交需求复杂、寿命长。灰鹦鹉尤其需重视营养与钙代谢；亚马逊繁殖季身体语言须认真读。</p><span class="pill">高认知需求</span></article>
+          <article class="card"><div class="species-name"><h3>凤头 / 金刚</h3><span>✦</span></div><p>极高的空间、噪声、啃咬与终身安置成本；强喙意味着玩具和家庭结构必须经得住破坏并可安全替换。</p><span class="pill">终身级承诺</span></article>
+          <article class="card"><div class="species-name"><h3>吸蜜鹦鹉</h3><span>✺</span></div><p>需专用花蜜/吸蜜配方，不适用普通种子或颗粒比例；排泄含水多，清洁频率和食物卫生要求更高。</p><span class="pill">专科饮食</span></article>
+        </div>
+        <p class="small muted" style="margin-top:13px">《世界鹦鹉图鉴》覆盖数百种鹦鹉的分布与生态，提醒我们：鹦鹉不是单一模板。实际饲养应再查该物种的自然食性、活动方式、社会结构和保护/贸易法规。</p>
+      </section>
+
+      <section class="guide-section searchable" id="checklists">
+        <header class="section-head">
+          <div class="num">13</div>
+          <div><h2>把好习惯变成清单</h2><p class="section-intro">勾选会保存在当前浏览器。它不是医疗记录的替代品，但能帮助全家使用同一套照护标准。</p></div>
+        </header>
+        <div class="grid-3">
+          <article class="card">
+            <h3>每日</h3>
+            <div class="checklist">
+              <label class="check-item"><input type="checkbox" data-check="daily-weight"><span>晨起体重与精神已记录</span></label>
+              <label class="check-item"><input type="checkbox" data-check="daily-water"><span>饮水、食盆已清洗更换</span></label>
+              <label class="check-item"><input type="checkbox" data-check="daily-droppings"><span>笼底纸与粪便已检查</span></label>
+              <label class="check-item"><input type="checkbox" data-check="daily-flight"><span>安全运动与互动已完成</span></label>
+              <label class="check-item"><input type="checkbox" data-check="daily-forage"><span>提供了觅食或短训练</span></label>
+            </div>
+          </article>
+          <article class="card">
+            <h3>每周</h3>
+            <div class="checklist">
+              <label class="check-item"><input type="checkbox" data-check="weekly-clean"><span>笼体、托盘、栖杠深度清洁</span></label>
+              <label class="check-item"><input type="checkbox" data-check="weekly-toy"><span>检查玩具磨损与缠绕风险</span></label>
+              <label class="check-item"><input type="checkbox" data-check="weekly-chart"><span>回看体重和饮食趋势</span></label>
+              <label class="check-item"><input type="checkbox" data-check="weekly-plan"><span>轮换下周蔬菜与觅食方案</span></label>
+            </div>
+          </article>
+          <article class="card">
+            <h3>家庭急救卡</h3>
+            <div class="checklist">
+              <label class="check-item"><input type="checkbox" data-check="prep-vet"><span>日间鸟类兽医电话已保存</span></label>
+              <label class="check-item"><input type="checkbox" data-check="prep-er"><span>夜间急诊与路线已确认</span></label>
+              <label class="check-item"><input type="checkbox" data-check="prep-carrier"><span>运输箱、纱布、毛巾可随手取用</span></label>
+              <label class="check-item"><input type="checkbox" data-check="prep-training"><span>鸟已能平静进入运输箱</span></label>
+            </div>
+          </article>
+        </div>
+        <button class="reset-checks" id="resetChecks" type="button">清空所有勾选</button>
+      </section>
+
+      <section class="guide-section searchable method" id="sources">
+        <header class="section-head">
+          <div class="num">14</div>
+          <div><h2>资料来源与使用边界</h2><p class="section-intro">本页是九本资料的综合改写，不是逐书摘抄。出现冲突时，优先采用较新的临床兽医资料；旧图谱与民间手养资料用于定位风险，不直接沿用药物剂量或侵入性操作。</p></div>
+        </header>
+        <div class="grid-3">
+          <div><h3>① 临床优先</h3><p class="muted">以《鸟类基础临床手册》的营养、急救、诊断与行为医学框架作为安全底座。</p></div>
+          <div><h3>② 多书交叉</h3><p class="muted">日常照护与行为建议至少用兽医监修资料或多个独立来源核对。</p></div>
+          <div><h3>③ 风险隔离</h3><p class="muted">不输出家庭用药剂量、盲插管、嗉囊侵入操作和未经诊断的治疗方案。</p></div>
+        </div>
+        <div class="source-list">
+          <div class="source-item"><strong>《鸟类基础临床手册》</strong><span>临床主证据：饲养、营养、行为、急救、疾病与诊断。</span></div>
+          <div class="source-item"><strong>《鸟医生的养鸟小百科》</strong><span>家庭健康观察、居家危险与日常照护。</span></div>
+          <div class="source-item"><strong>《鳥類專科獸醫監修_鸚鵡》</strong><span>兽医监修的入门准备、生活管理与寿命意识。</span></div>
+          <div class="source-item"><strong>《第一次養鸚鵡就戀愛了》</strong><span>居家互动、饮食转化、繁殖诱因与生活案例。</span></div>
+          <div class="source-item"><strong>《当然问鹦鹉才清楚》</strong><span>身体语言、选择权、正向互动与行为视角。</span></div>
+          <div class="source-item"><strong>《鹦鹉有话说》</strong><span>行为案例、危险食物与植物清单的交叉核对。</span></div>
+          <div class="source-item"><strong>《世界鹦鹉图鉴 全新美耐版》</strong><span>物种、分布、生态差异与保育背景。</span></div>
+          <div class="source-item"><strong>《观赏鸟病诊疗原色图谱》</strong><span>症状图像与疾病类别索引；旧版药疗内容不直接采用。</span></div>
+          <div class="source-item"><strong>《鹦鹉0天手养秘籍》</strong><span>育雏流程与事故风险识别；不转写高风险操作和剂量。</span></div>
+        </div>
+        <div class="callout" style="margin-bottom:0"><span class="signal">✚</span><div><strong>医疗声明</strong>本指南用于教育和就诊准备，不能替代鸟类兽医的面对面检查。药物、检验、隔离期限、特殊饮食和育雏方案必须按具体物种与个体决定。</div></div>
+      </section>
+
+      <footer>
+        <p>鹦鹉饲养指南 · 九本资料综合版 · 2026-07-13</p>
+        <p>内容已按“临床证据优先、家庭可执行、安全边界明确”的原则整理。</p>
+      </footer>
+    </main>
+  </div>
+
+  <script>
+    (function () {
+      var root = document.documentElement;
+      var savedTheme = localStorage.getItem("parrot-guide-theme");
+      if (savedTheme) root.setAttribute("data-theme", savedTheme);
+
+      document.getElementById("themeToggle").addEventListener("click", function () {
+        var next = root.getAttribute("data-theme") === "dark" ? "light" : "dark";
+        root.setAttribute("data-theme", next);
+        localStorage.setItem("parrot-guide-theme", next);
+      });
+      document.getElementById("printButton").addEventListener("click", function () { window.print(); });
+
+      var checks = document.querySelectorAll("[data-check]");
+      checks.forEach(function (box) {
+        box.checked = localStorage.getItem("parrot-check-" + box.dataset.check) === "1";
+        box.addEventListener("change", function () {
+          localStorage.setItem("parrot-check-" + box.dataset.check, box.checked ? "1" : "0");
+        });
+      });
+      document.getElementById("resetChecks").addEventListener("click", function () {
+        checks.forEach(function (box) {
+          box.checked = false;
+          localStorage.removeItem("parrot-check-" + box.dataset.check);
+        });
+      });
+
+      var progress = document.getElementById("progressBar");
+      var sections = Array.from(document.querySelectorAll(".guide-section"));
+      var tocLinks = Array.from(document.querySelectorAll(".toc a"));
+      function onScroll() {
+        var max = document.documentElement.scrollHeight - window.innerHeight;
+        progress.style.width = (max > 0 ? window.scrollY / max * 100 : 0) + "%";
+        var current = sections[0] ? sections[0].id : "";
+        sections.forEach(function (section) {
+          if (section.getBoundingClientRect().top <= 130) current = section.id;
+        });
+        tocLinks.forEach(function (link) {
+          link.classList.toggle("active", link.getAttribute("href") === "#" + current);
+        });
+      }
+      window.addEventListener("scroll", onScroll, { passive: true });
+      onScroll();
+
+      var input = document.getElementById("searchInput");
+      var clear = document.getElementById("searchClear");
+      var searchables = Array.from(document.querySelectorAll(".searchable"));
+      var noResults = document.getElementById("noResults");
+      function search() {
+        var query = input.value.trim().toLowerCase();
+        var count = 0;
+        searchables.forEach(function (el) {
+          var matched = !query || el.textContent.toLowerCase().indexOf(query) !== -1;
+          el.style.display = matched ? "" : "none";
+          if (matched) count += 1;
+        });
+        noResults.style.display = count ? "none" : "block";
+      }
+      input.addEventListener("input", search);
+      clear.addEventListener("click", function () { input.value = ""; search(); input.focus(); });
+    })();
+  </script>
+</body>
+</html>
