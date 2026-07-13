@@ -1,0 +1,17 @@
+@import "tailwindcss";
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+  background: #f4efe4;
+}
+
+.guide-frame {
+  display: block;
+  width: 100vw;
+  height: 100vh;
+  border: 0;
+}
