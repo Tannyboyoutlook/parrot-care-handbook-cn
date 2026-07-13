@@ -16,7 +16,12 @@
       --leaf: #cddcba;
       --amber: #d99732;
       --coral: #d85c4a;
+      --coral-strong: #a94036;
       --red-soft: #f8ddd7;
+      --panel-dark: #17312a;
+      --panel-on-dark: #fffaf0;
+      --panel-muted: #c7d0cb;
+      --panel-line: rgba(255, 250, 240, .18);
       --line: #d8d1c2;
       --shadow: 0 12px 36px rgba(45, 62, 53, .11);
       --radius: 20px;
@@ -187,7 +192,7 @@
       margin-top: 18px;
       padding: 12px 14px;
       border-radius: 13px;
-      background: var(--coral);
+      background: var(--coral-strong);
       color: #fff;
       text-decoration: none;
       font-weight: 800;
@@ -365,6 +370,7 @@
       border: 1px solid var(--line);
       border-radius: var(--radius);
       background: color-mix(in srgb, var(--paper-2) 93%, transparent);
+      color: var(--ink);
       box-shadow: 0 7px 28px rgba(45,62,53,.055);
     }
     .card p:last-child, .card ul:last-child { margin-bottom: 0; }
@@ -407,6 +413,7 @@
       border-left: 5px solid var(--amber);
       border-radius: 4px var(--radius) var(--radius) 4px;
       background: var(--paper-2);
+      color: var(--ink);
       box-shadow: 0 7px 25px rgba(45,62,53,.05);
     }
     .callout.danger { border-color: var(--coral); background: var(--red-soft); }
@@ -426,6 +433,7 @@
       border: 1px solid var(--line);
       border-radius: 16px;
       background: var(--paper-2);
+      color: var(--ink);
     }
     .decision .step:not(:last-child)::after {
       content: "→";
@@ -439,7 +447,7 @@
       place-items: center;
       border-radius: 50%;
       background: var(--amber);
-      color: #fff;
+      color: var(--ink);
       font-weight: 900;
     }
     .step b { display: block; margin-bottom: 8px; color: var(--green); }
@@ -452,6 +460,7 @@
       border: 1px solid var(--line);
       border-radius: 30px;
       background: var(--paper-2);
+      color: var(--ink);
       box-shadow: var(--shadow);
     }
     .plate-visual { position: relative; width: 230px; height: 230px; margin: 18px auto; border-radius: 50%; background: conic-gradient(var(--green) 0 65%, var(--amber) 65% 88%, #8e6746 88% 100%); box-shadow: inset 0 0 0 12px var(--paper-2), 0 12px 25px rgba(45,62,53,.13); }
@@ -461,7 +470,7 @@
     .legend span:nth-child(2)::before { background: var(--amber); }
     .legend span:nth-child(3)::before { background: #8e6746; }
 
-    table { width: 100%; border-collapse: collapse; background: var(--paper-2); }
+    table { width: 100%; border-collapse: collapse; background: var(--paper-2); color: var(--ink); }
     th, td { padding: 13px 15px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
     th { color: var(--green); font-size: 13px; }
     tr:last-child td { border-bottom: 0; }
@@ -471,6 +480,7 @@
       border: 1px solid var(--line);
       border-radius: 15px;
       background: var(--paper-2);
+      color: var(--ink);
       overflow: clip;
     }
     details + details { margin-top: 9px; }
@@ -515,6 +525,7 @@
       border: 1px solid var(--line);
       border-radius: 12px;
       background: var(--paper-2);
+      color: var(--ink);
       cursor: pointer;
     }
     .check-item input { width: 18px; height: 18px; margin-top: 3px; accent-color: var(--green); }
@@ -530,15 +541,15 @@
       padding: clamp(24px, 4vw, 40px);
       border: 1px solid var(--line);
       border-radius: 28px;
-      background: var(--ink);
-      color: var(--paper-2);
+      background: var(--panel-dark);
+      color: var(--panel-on-dark);
     }
-    .method h2, .method h3 { color: var(--paper-2); }
-    .method .muted { color: color-mix(in srgb, var(--paper-2) 68%, transparent); }
+    .method h2, .method h3 { color: var(--panel-on-dark); }
+    .method .muted { color: var(--panel-muted); }
     .source-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-top: 20px; }
-    .source-item { padding: 14px 16px; border: 1px solid color-mix(in srgb, var(--paper-2) 18%, transparent); border-radius: 13px; }
+    .source-item { padding: 14px 16px; border: 1px solid var(--panel-line); border-radius: 13px; }
     .source-item strong { display: block; color: #f4c36b; }
-    .source-item span { font-size: 13px; color: color-mix(in srgb, var(--paper-2) 72%, transparent); }
+    .source-item span { font-size: 13px; color: var(--panel-muted); }
 
     .no-results { display: none; margin: 40px 0; padding: 28px; border: 1px dashed var(--line); border-radius: var(--radius); text-align: center; color: var(--muted); }
     mark { padding: 0 2px; border-radius: 3px; background: #ffe079; color: #243129; }
