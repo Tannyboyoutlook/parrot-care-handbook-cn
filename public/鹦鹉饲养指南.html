@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="九本鹦鹉与鸟类资料交叉整理的完整饲养指南：营养、环境、行为、健康监测、急救和手养风险。">
-  <title>鹦鹉饲养指南｜九本资料综合版</title>
+  <meta name="description" content="面向家庭饲养者的完整鹦鹉指南：营养、环境、行为、健康监测、急救和手养风险。">
+  <title>鹦鹉饲养指南｜家庭综合版</title>
   <style>
     :root {
       --paper: #f4efe4;
@@ -18,10 +18,6 @@
       --coral: #d85c4a;
       --coral-strong: #a94036;
       --red-soft: #f8ddd7;
-      --panel-dark: #17312a;
-      --panel-on-dark: #fffaf0;
-      --panel-muted: #c7d0cb;
-      --panel-line: rgba(255, 250, 240, .18);
       --line: #d8d1c2;
       --shadow: 0 12px 36px rgba(45, 62, 53, .11);
       --radius: 20px;
@@ -379,18 +375,6 @@
     .card.risk { border-color: color-mix(in srgb, var(--coral) 48%, var(--line)); background: var(--red-soft); }
     .muted { color: var(--muted); }
     .small { font-size: 13px; }
-    .source {
-      display: inline-flex;
-      align-items: center;
-      margin: 4px 4px 0 0;
-      padding: 3px 8px;
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      color: var(--muted);
-      background: var(--paper);
-      font-size: 11px;
-      line-height: 1.4;
-    }
     .pill {
       display: inline-block;
       margin: 2px 4px 2px 0;
@@ -537,20 +521,6 @@
     .species-name { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
     .species-name span { color: var(--amber); font-size: 24px; }
 
-    .method {
-      padding: clamp(24px, 4vw, 40px);
-      border: 1px solid var(--line);
-      border-radius: 28px;
-      background: var(--panel-dark);
-      color: var(--panel-on-dark);
-    }
-    .method h2, .method h3 { color: var(--panel-on-dark); }
-    .method .muted { color: var(--panel-muted); }
-    .source-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-top: 20px; }
-    .source-item { padding: 14px 16px; border: 1px solid var(--panel-line); border-radius: 13px; }
-    .source-item strong { display: block; color: #f4c36b; }
-    .source-item span { font-size: 13px; color: var(--panel-muted); }
-
     .no-results { display: none; margin: 40px 0; padding: 28px; border: 1px dashed var(--line); border-radius: var(--radius); text-align: center; color: var(--muted); }
     mark { padding: 0 2px; border-radius: 3px; background: #ffe079; color: #243129; }
     footer { padding: 15px 0 70px; color: var(--muted); font-size: 13px; text-align: center; }
@@ -573,7 +543,7 @@
       .stat { padding: 16px 8px; }
       .section-head { grid-template-columns: 46px 1fr; gap: 12px; }
       .num { width: 44px; height: 44px; }
-      .grid-2, .grid-3, .grid-4, .species, .source-list { grid-template-columns: 1fr; }
+      .grid-2, .grid-3, .grid-4, .species { grid-template-columns: 1fr; }
       .decision { grid-template-columns: 1fr; }
       .decision .step { min-height: auto; }
       .decision .step:not(:last-child)::after { content: "↓"; right: calc(50% - 13px); top: auto; bottom: -20px; }
@@ -590,13 +560,11 @@
       .hero-art { display: none; }
       .stats { margin-bottom: 32px; box-shadow: none; }
       .guide-section { break-before: page; margin-bottom: 25px; }
-      .card, .table-wrap, details, .method { break-inside: avoid; box-shadow: none; }
+      .card, .table-wrap, details { break-inside: avoid; box-shadow: none; }
       details .detail-body { display: block !important; }
       .emergency { background: #fff; color: #111; border: 3px solid #7f2f27; box-shadow: none; }
       .emergency h2, .emergency .section-intro { color: #111; }
       .red-grid div { color: #111; background: #fff; }
-      .method { background: #fff; color: #111; }
-      .method h2, .method h3, .method .muted, .source-item span { color: #111; }
       footer { padding-bottom: 0; }
     }
   </style>
@@ -633,7 +601,6 @@
         <a href="#handfeeding">幼鸟手养</a>
         <a href="#species">种类速览</a>
         <a href="#checklists">照护清单</a>
-        <a href="#sources">资料与方法</a>
       </nav>
       <a class="side-emergency" href="#emergency">出现急症怎么办</a>
     </aside>
@@ -641,9 +608,9 @@
     <main id="main">
       <section class="hero searchable">
         <div>
-          <div class="eyebrow">九本资料 · 跨书核对 · 家庭实用版</div>
+          <div class="eyebrow">安全优先 · 行动导向 · 家庭实用版</div>
           <h1>让鹦鹉<em>好好生活</em>，不只是活着</h1>
-          <p class="lead">一份从 2,136 页兽医临床、行为、图鉴与日常照护资料中提炼的行动指南。先讲安全，再讲营养；先读懂鸟，再改变鸟。</p>
+          <p class="lead">一份把复杂饲养信息压缩成家庭行动原则的指南。先保障环境与营养，再理解行为和个体差异；出现健康风险时，优先稳定状态并及时就医。</p>
           <div class="hero-actions">
             <a class="button" href="#start">开始阅读 <span>↓</span></a>
             <a class="button ghost" href="#emergency">直接看急症处理</a>
@@ -655,17 +622,17 @@
       </section>
 
       <div class="stats searchable" aria-label="资料规模">
-        <div class="stat"><strong>9</strong><span>本中文鹦鹉与鸟类资料</span></div>
-        <div class="stat"><strong>2,136</strong><span>页逐页提取与核验</span></div>
-        <div class="stat"><strong>4 层</strong><span>临床 / 饲养 / 行为 / 图鉴</span></div>
+        <div class="stat"><strong>13</strong><span>个核心照护主题</span></div>
+        <div class="stat"><strong>每日</strong><span>记录体重、食欲与状态</span></div>
+        <div class="stat"><strong>优先</strong><span>识别风险并及时就医</span></div>
       </div>
 
-      <div class="no-results" id="noResults">没有找到相关内容。试试“牛油果”“张口呼吸”“颗粒粮”或“咬人”。</div>
+      <div class="no-results" id="noResults">没有找到相关内容。可尝试搜索牛油果、张口呼吸、颗粒粮或咬人。</div>
 
       <section class="guide-section searchable" id="start">
         <header class="section-head">
           <div class="num">01</div>
-          <div><h2>养之前，先做对选择</h2><p class="section-intro">鹦鹉不是“会说话的装饰品”，而是寿命长、社交需求高、会制造噪音与粉尘的野生本能动物。品种越大，通常意味着空间、破坏力、医疗和终身安排都成倍增加。</p></div>
+          <div><h2>养之前，先做对选择</h2><p class="section-intro">鹦鹉不应被当作会说话的装饰品。它们寿命长、社交需求高，并会制造噪音与粉尘。品种越大，通常意味着空间、破坏力、医疗和终身安排都成倍增加。</p></div>
         </header>
         <div class="decision">
           <div class="step"><b>① 时间</b>每天是否有稳定的互动、放飞、清洁和训练时间？出差时谁来照护？</div>
@@ -675,10 +642,10 @@
         </div>
         <div class="grid-3">
           <article class="card accent"><span class="icon">◎</span><h3>按生活匹配，不按颜值</h3><p>先比较叫声、粉尘、活动量、咬合力、社交依赖、寿命、专科饮食和笼舍尺度，再考虑颜色和说话能力。</p></article>
-          <article class="card accent"><span class="icon">⌂</span><h3>来源合法且可追溯</h3><p>拒绝野外捕捉、来路不明与“未断奶更亲人”的销售话术。优先选择健康、已独立进食、来源清楚的个体。</p></article>
+          <article class="card accent"><span class="icon">⌂</span><h3>来源合法且可追溯</h3><p>拒绝野外捕捉、来路不明，以及用未断奶幼鸟更亲人作为卖点的销售方式。优先选择健康、已独立进食、来源清楚的个体。</p></article>
           <article class="card accent"><span class="icon">✚</span><h3>先找到兽医再接鸟</h3><p>把日间门诊、夜间急诊、路线和电话记好；首次检查能建立体重、粪便和基础健康档案。</p></article>
         </div>
-        <div class="callout"><span class="signal">☞</span><div><strong>“小体型”不等于“低需求”</strong>爱情鸟、太平洋鹦鹉等虽小，仍可能领地性强、咬合坚定；玄凤、虎皮也需要每天社交、觅食和飞行机会。<br><span class="source">世界鹦鹉图鉴：生态与物种差异</span><span class="source">鳥類專科獸醫監修_鸚鵡：饲养前准备</span></div></div>
+        <div class="callout"><span class="signal">☞</span><div><strong>体型小不代表照护需求少</strong>爱情鸟、太平洋鹦鹉等虽小，仍可能领地性强、咬合坚定；玄凤、虎皮也需要每天社交、觅食和飞行机会。</div></div>
       </section>
 
       <section class="guide-section searchable" id="home">
@@ -696,7 +663,6 @@
               <li>栖杠不要架在食盆水盆正上方；保留清晰活动路线。</li>
               <li>笼底铺白纸，便于每天观察粪便；不使用香味垫材、猫砂或易吞食填料。</li>
             </ul>
-            <span class="source">鸟类基础临床手册 PDF 47–61</span>
           </article>
           <article class="card">
             <span class="icon">♨</span><h3>摆放与空气</h3>
@@ -706,10 +672,9 @@
               <li>避免长时间暴晒和骤冷骤热；晒太阳时必须有阴影与水。</li>
               <li>不把笼子放在电视音箱旁、空调出风口或人流持续惊扰处。</li>
             </ul>
-            <span class="source">鸟医生的养鸟小百科：居家危险</span>
           </article>
         </div>
-        <div class="callout danger"><span class="signal">!</span><div><strong>厨房对鸟类尤其危险</strong>过热的不粘涂层/PTFE、油烟、一氧化碳、烤箱自洁程序和气雾剂都可能造成快速致命的呼吸道中毒。发生疑似暴露：立刻转移到新鲜空气，减少抓持，联系鸟类兽医急诊。<br><span class="source">鸟类基础临床手册 PDF 129–131</span></div></div>
+        <div class="callout danger"><span class="signal">!</span><div><strong>厨房对鸟类尤其危险</strong>过热的不粘涂层/PTFE、油烟、一氧化碳、烤箱自洁程序和气雾剂都可能造成快速致命的呼吸道中毒。发生疑似暴露：立刻转移到新鲜空气，减少抓持，联系鸟类兽医急诊。</div></div>
         <div class="grid-4">
           <article class="card"><h3>每天</h3><p>换饮水、清洗食盆、换笼底纸；检查粪便、玩具破损和可吞小件。</p></article>
           <article class="card"><h3>每周</h3><p>清洗笼盘、栏杆、栖杠和常用玩具；充分冲净并彻底干燥。</p></article>
@@ -721,11 +686,11 @@
       <section class="guide-section searchable" id="food">
         <header class="section-head">
           <div class="num">03</div>
-          <div><h2>饮食：从“吃饱”升级到“吃对”</h2><p class="section-intro">长期单一谷物或葵花籽会把鸟推向肥胖、脂肪肝、钙与维生素 A 等营养问题。对多数常见鹦鹉，完整配方粮是营养骨架，蔬菜提供多样性，坚果和种子适合作为少量奖励与觅食材料。</p></div>
+          <div><h2>饮食：从单纯吃饱转向营养均衡</h2><p class="section-intro">长期单一谷物或葵花籽会把鸟推向肥胖、脂肪肝、钙与维生素 A 等营养问题。对多数常见鹦鹉，完整配方粮是营养骨架，蔬菜提供多样性，坚果和种子适合作为少量奖励与觅食材料。</p></div>
         </header>
         <div class="grid-2">
           <div class="plate">
-            <h3>多数常见鹦鹉的“餐盘思路”</h3>
+            <h3>多数常见鹦鹉的餐盘思路</h3>
             <div class="plate-visual" aria-hidden="true"></div>
             <div class="legend">
               <span><strong>约 60–70% 完整配方粮</strong>：选择适合物种与粒径的正规产品</span>
@@ -735,7 +700,7 @@
             <p class="small muted" style="margin-top:14px">这是家庭实用起点，不是所有物种的固定处方。吸蜜鹦鹉需专用花蜜配方；某些生态型、患病或繁殖个体应由兽医定制。</p>
           </div>
           <div>
-            <article class="card"><h3>换粮要慢，体重来把关</h3><p>把新食物从熟悉食物旁边、食盆上层、觅食玩具或训练奖励逐步引入。不要突然撤掉旧食物“逼饿”。换粮期每天观察实际摄入、精神、粪便与克重；出现明显或快速下降，立即暂停并联系兽医。</p><span class="source">鸟类基础临床手册 PDF 95–99</span></article>
+            <article class="card"><h3>换粮要慢，体重来把关</h3><p>把新食物从熟悉食物旁边、食盆上层、觅食玩具或训练奖励逐步引入。不要突然撤掉旧食物，试图用饥饿迫使鸟换粮。换粮期每天观察实际摄入、精神、粪便与克重；出现明显或快速下降，立即暂停并联系兽医。</p></article>
             <div class="callout"><span class="signal">⚖</span><div><strong>用克重，不用目测</strong>固定在每天早餐前、排便后称重；使用稳定的克重电子秤和训练好的站秤动作。单次数字看趋势，连续偏离个体基线更重要。</div></div>
           </div>
         </div>
@@ -746,13 +711,13 @@
           <article class="card risk"><h3>人类零食</h3><p>高盐、高糖、高油、油炸、腌制食品与含木糖醇或其他代糖的加工品，都不应进入日常食谱。</p></article>
           <article class="card risk"><h3>补充剂误区</h3><p>不要在完整配方粮基础上随意叠加维生素或钙粉；脂溶性维生素过量也会中毒。补充剂应有兽医指征。</p></article>
         </div>
-        <div class="callout"><span class="signal">i</span><div><strong>水果不是“无限量健康食品”</strong>水果含糖高，可作为少量多样化食物；蔬菜应占新鲜食物的大头。吸蜜鹦鹉等特殊物种例外，需用专用方案。<br><span class="source">鸟类基础临床手册 PDF 92–105</span><span class="source">鹦鹉有话说 PDF 45：毒性食物与植物</span></div></div>
+        <div class="callout"><span class="signal">i</span><div><strong>水果也需要限量</strong>水果含糖高，可作为少量多样化食物；蔬菜应占新鲜食物的大头。吸蜜鹦鹉等特殊物种例外，需用专用方案。</div></div>
       </section>
 
       <section class="guide-section searchable" id="routine">
         <header class="section-head">
           <div class="num">04</div>
-          <div><h2>一天的节律</h2><p class="section-intro">可预期的作息能降低警戒和挫折。规律不是僵化：每天保留“吃、飞、找、学、休息”的骨架，再让玩具和觅食方式保持新鲜。</p></div>
+          <div><h2>一天的节律</h2><p class="section-intro">可预期的作息能降低警戒和挫折。每天应保留进食、飞行、觅食、学习和休息的基本节律，同时适度轮换玩具与活动方式。</p></div>
         </header>
         <div class="table-wrap">
           <table>
@@ -771,11 +736,11 @@
       <section class="guide-section searchable" id="behavior">
         <header class="section-head">
           <div class="num">05</div>
-          <div><h2>行为：先问“为什么”，再问“怎么改”</h2><p class="section-intro">尖叫、啃咬、护笼、拒绝上手常常是正常行为在不合适的情境中被强化，或是恐惧、疼痛、睡眠不足与缺乏选择的表达。惩罚只能压住信号，不能解决原因。</p></div>
+          <div><h2>行为：先找原因，再调整反应</h2><p class="section-intro">尖叫、啃咬、护笼、拒绝上手常常是正常行为在不合适的情境中被强化，或是恐惧、疼痛、睡眠不足与缺乏选择的表达。惩罚只能压住信号，不能解决原因。</p></div>
         </header>
         <div class="grid-3">
           <article class="card"><span class="icon">A</span><h3>前因 Antecedent</h3><p>行为发生前有什么？陌生人靠近、手伸入笼、主人离开、饥饿、噪音，还是筑巢空间？</p></article>
-          <article class="card"><span class="icon">B</span><h3>行为 Behavior</h3><p>只描述能看见的动作：身体前倾、瞳孔缩放、张嘴、扑咬；不要写“故意报复”。</p></article>
+          <article class="card"><span class="icon">B</span><h3>行为 Behavior</h3><p>只描述能看见的动作，例如身体前倾、瞳孔缩放、张嘴和扑咬，不给行为贴上报复等主观标签。</p></article>
           <article class="card"><span class="icon">C</span><h3>后果 Consequence</h3><p>行为后得到了什么？人退开、被抱起、食物、注视或叫喊？这可能让行为更常出现。</p></article>
         </div>
         <div class="grid-2" style="margin-top:16px">
@@ -785,51 +750,49 @@
             <p style="margin-top:12px">每次 1–3 分钟，在鸟还想继续时结束。把目标拆成很小步骤，用它真正喜欢的奖励强化。</p>
           </article>
           <article class="card accent">
-            <h3>尊重“不要”</h3>
+            <h3>尊重拒绝信号</h3>
             <p>看到身体后撤、羽毛紧贴、张嘴、尾巴张开、瞳孔快速缩放等信号就降低难度或退开。允许拒绝，是建立自愿合作的前提。</p>
             <p><strong>抚摸以头颈为主</strong>；长期摸背、腹、翅下或口对口喂食，可能被当成伴侣行为并诱发繁殖与护偶。</p>
           </article>
         </div>
         <details style="margin-top:18px">
           <summary>咬人时的处理顺序</summary>
-          <div class="detail-body"><ol class="clean"><li>先排除疼痛、疾病、发情与睡眠不足。</li><li>记录咬前情境和身体语言，找到可预测的触发点。</li><li>在咬发生前就停下或换任务；训练“定点”“触碰目标棒”等替代行为。</li><li>保持反应平静，避免拍打、弹嘴、喷水、摇笼或大声恐吓。</li><li>持续严重或突然改变，联系鸟类兽医和正向强化行为顾问。</li></ol></div>
+          <div class="detail-body"><ol class="clean"><li>先排除疼痛、疾病、发情与睡眠不足。</li><li>记录咬前情境和身体语言，找到可预测的触发点。</li><li>在咬发生前就停下或换任务；训练定点、触碰目标棒等替代行为。</li><li>保持反应平静，避免拍打、弹嘴、喷水、摇笼或大声恐吓。</li><li>持续严重或突然改变，联系鸟类兽医和正向强化行为顾问。</li></ol></div>
         </details>
         <details>
           <summary>尖叫时的处理顺序</summary>
-          <div class="detail-body"><p>先确认叫声是否为正常晨昏联络、恐惧警报或求助。增加睡眠、运动、觅食和可预测互动；在安静或较柔和的声音出现时及时奖励。不要用持续回应无意中训练“越叫越有人来”。</p></div>
+          <div class="detail-body"><p>先确认叫声是否为正常晨昏联络、恐惧警报或求助。增加睡眠、运动、觅食和可预测互动；在安静或较柔和的声音出现时及时奖励，避免持续回应强化高强度叫声。</p></div>
         </details>
-        <span class="source">鸟类基础临床手册 PDF 80–91</span><span class="source">当然问鹦鹉才清楚：身体语言与选择</span><span class="source">鹦鹉有话说：行为案例</span>
       </section>
 
       <section class="guide-section searchable" id="health">
         <header class="section-head">
           <div class="num">06</div>
-          <div><h2>健康监测：发现“和平时不一样”</h2><p class="section-intro">鸟类会隐藏虚弱，等到明显生病往往已不轻。家庭监测的价值不是自行确诊，而是更早识别变化、向兽医提供高质量线索。</p></div>
+          <div><h2>健康监测：发现偏离日常基线的变化</h2><p class="section-intro">鸟类会隐藏虚弱，等到明显生病往往已不轻。家庭监测的价值不是自行确诊，而是更早识别变化、向兽医提供高质量线索。</p></div>
         </header>
         <div class="grid-4">
-          <article class="card"><span class="icon">⚖</span><h3>体重</h3><p>同一时间、同一秤、记录克重。连续下降或显著偏离个体基线比“还在正常范围”更重要。</p></article>
+          <article class="card"><span class="icon">⚖</span><h3>体重</h3><p>同一时间、同一秤、记录克重。即使数值看似处于常见范围，连续下降或显著偏离个体基线仍需重视。</p></article>
           <article class="card"><span class="icon">◉</span><h3>粪便</h3><p>看数量、体积、颜色、成形粪便/白色尿酸盐/透明尿液三部分；同时结合食物和饮水变化。</p></article>
           <article class="card"><span class="icon">◌</span><h3>呼吸</h3><p>静息时不应张口、明显尾摆、伸颈或发出呼吸音。运动后恢复时间也值得记录。</p></article>
           <article class="card"><span class="icon">✦</span><h3>行为</h3><p>食欲、鸣叫、抓握、飞行、理羽和社交突然改变，都可能是疾病或疼痛的第一信号。</p></article>
         </div>
-        <div class="callout"><span class="signal">📷</span><div><strong>给兽医准备“可用的资料”</strong>记录开始时间、体重曲线、食物与可能暴露；拍下呼吸和异常动作视频、粪便照片。保留疑似毒物包装。不要为了取样延误急诊。</div></div>
+        <div class="callout"><span class="signal">📷</span><div><strong>准备可供兽医判断的记录</strong>记录开始时间、体重曲线、食物与可能暴露；拍下呼吸和异常动作视频、粪便照片。保留疑似毒物包装。不要为了取样延误急诊。</div></div>
         <div class="table-wrap">
           <table>
             <thead><tr><th>粪便变化</th><th>可能的解释</th><th>怎么做</th></tr></thead>
             <tbody>
               <tr><td>吃甜菜/莓果后暂时变色</td><td>食物色素</td><td>精神、食欲正常可短时观察，记录所吃食物。</td></tr>
-              <tr><td>透明液体增多但成形粪便仍在</td><td>多尿，可能与水果、饮水、紧张或疾病有关</td><td>不要笼统叫“腹泻”；若持续或伴精神差，尽快就诊。</td></tr>
+              <tr><td>透明液体增多但成形粪便仍在</td><td>多尿，可能与水果、饮水、紧张或疾病有关</td><td>先区分多尿与真正的腹泻；若持续或伴精神差，尽快就诊。</td></tr>
               <tr><td>粪便不成形、数量减少或颜色异常持续</td><td>摄入不足、消化道/肝胆等多种问题</td><td>结合体重和食欲，当日联系兽医；禁食或久不排便按急症。</td></tr>
             </tbody>
           </table>
         </div>
-        <span class="source">鸟医生的养鸟小百科 PDF 121–122</span><span class="source">鸟类基础临床手册 PDF 129–131</span>
       </section>
 
       <section class="guide-section searchable emergency" id="emergency">
         <header class="section-head">
           <div class="num">07</div>
-          <div><h2>这些情况，按急症处理</h2><p class="section-intro">以下任一项都不适合“先观察一晚”。立即联系鸟类/异宠兽医；路上保持安静、通风、少抓持。</p></div>
+          <div><h2>这些情况，按急症处理</h2><p class="section-intro">出现以下任一情况都不应继续等待。立即联系鸟类或异宠兽医；转运途中保持安静、通风并减少抓持。</p></div>
         </header>
         <div class="red-grid">
           <div><strong>呼吸</strong>张口呼吸、明显尾摆、伸颈喘气、发绀、呼吸音或吸入烟雾/不粘锅气体。</div>
@@ -845,7 +808,7 @@
           <article class="card"><h3>保温但不闷热</h3><p>病鸟可在箱体一侧外部提供温和热源，让它能自行远离。若张口喘或翅膀外展，可能过热，应立即调整。</p></article>
           <article class="card"><h3>出血直接加压</h3><p>用干净纱布持续、温和按压。不要频繁掀开查看，不要向深部伤口撒粉。持续出血立即急诊。</p></article>
         </div>
-        <div class="callout"><span class="signal">×</span><div><strong>不要强灌水、强塞食、挤嗉囊或自行喂药</strong>虚弱鸟极易误吸；抓持过紧还会限制胸廓运动。也不要等待网络回复后再决定是否就医。<br><span class="source">鸟类基础临床手册 PDF 117–126</span></div></div>
+        <div class="callout"><span class="signal">×</span><div><strong>不要强灌水、强塞食、挤嗉囊或自行喂药</strong>虚弱鸟极易误吸；抓持过紧还会限制胸廓运动。也不要等待网络回复后再决定是否就医。</div></div>
       </section>
 
       <section class="guide-section searchable" id="illness">
@@ -854,12 +817,12 @@
           <div><h2>常见问题地图：认方向，不在家确诊</h2><p class="section-intro">同一症状可能来自完全不同的疾病。羽毛差、嗜睡、腹泻或呼吸困难都不能只凭照片定论；鸟类诊断常需要体检、影像、血液、粪便或病原检测。</p></div>
         </header>
         <div class="grid-2">
-          <article class="card"><h3>感染性</h3><p><strong>鹦鹉热衣原体、PBFD/圆环病毒、多瘤病毒、鸟博尔纳病毒、细菌、真菌和寄生虫</strong>均可能出现非特异症状。新鸟隔离、卫生和针对性检测比“预防性乱用药”更可靠。</p></article>
+          <article class="card"><h3>感染性</h3><p><strong>鹦鹉热衣原体、PBFD/圆环病毒、多瘤病毒、鸟博尔纳病毒、细菌、真菌和寄生虫</strong>均可能出现非特异症状。新鸟隔离、卫生和针对性检测比没有诊断依据的预防性用药更可靠。</p></article>
           <article class="card"><h3>营养与代谢</h3><p><strong>肥胖、脂肪肝、低钙、维生素 A 不足</strong>常与长期单一种子、高能量低活动有关。治疗不是只加一种补品，而是体检后重建完整饮食和活动方案。</p></article>
           <article class="card"><h3>羽毛与皮肤</h3><p>啄羽可能涉及疼痛、皮肤病、感染、营养、激素、环境干燥、无聊或焦虑。戴圈和喷苦味剂若不处理原因，通常不能根治。</p></article>
           <article class="card"><h3>繁殖与泌尿</h3><p>慢性产蛋、卡蛋和泄殖腔问题可迅速危及生命。反复下蛋需要同时评估光照、巢穴、伴侣关系、饮食、钙代谢和潜在疾病。</p></article>
         </div>
-        <div class="callout danger"><span class="signal">Rx</span><div><strong>本指南不提供药名剂量</strong>旧版图谱和手养资料中的药物、抗生素、驱虫与侵入性处置未被转写为家庭操作。药物选择取决于物种、体重、器官状态与确诊结果；错误剂量可能致命。<br><span class="source">观赏鸟病诊疗原色图谱：用于症状与病类索引</span><span class="source">鸟类基础临床手册：用于现代诊疗框架</span></div></div>
+        <div class="callout danger"><span class="signal">Rx</span><div><strong>不要根据通用信息自行用药</strong>药物选择和剂量取决于物种、体重、器官状态与确诊结果；错误治疗可能掩盖病情或直接造成伤害。抗生素、驱虫药和侵入性处置都应由接诊兽医决定。</div></div>
       </section>
 
       <section class="guide-section searchable" id="newbird">
@@ -871,7 +834,7 @@
           <div class="step"><b>① 入住隔离区</b>独立房间、用品分开；记录体重、食欲、粪便和精神。</div>
           <div class="step"><b>② 鸟类兽医检查</b>提供来源、运输、饮食和既往记录；由兽医按物种与风险决定检测。</div>
           <div class="step"><b>③ 远距离熟悉</b>兽医确认后，先闻声、再隔笼看见；任何压力都退回上一步。</div>
-          <div class="step"><b>④ 受控接触</b>中立空间、双人看护、短时间；永不强迫“必须成为朋友”。</div>
+          <div class="step"><b>④ 受控接触</b>中立空间、双人看护、短时间；不强迫两只鸟建立亲密关系。</div>
         </div>
         <div class="callout"><span class="signal">i</span><div><strong>隔离时长没有一个适合所有家庭的数字</strong>它取决于来源、物种、检查和病原检测结果。让接诊兽医决定解除隔离的条件，比照搬固定天数更稳妥。</div></div>
       </section>
@@ -883,7 +846,7 @@
         </header>
         <div class="grid-3">
           <article class="card"><h3>移除巢穴线索</h3><p>封住纸箱、柜缝、沙发底和帐篷等暗洞；减少持续撕碎后堆积的巢材。</p></article>
-          <article class="card"><h3>调整互动</h3><p>抚摸限于头颈，不口对口喂食；鼓励与全家互动、独立觅食和训练，不强化“唯一配偶”。</p></article>
+          <article class="card"><h3>调整互动</h3><p>抚摸限于头颈，不口对口喂食；鼓励与全家互动、独立觅食和训练，避免形成对单一人的伴侣依赖。</p></article>
           <article class="card"><h3>检视能量与光照</h3><p>减少高脂奖励，维持稳定睡眠。反复产蛋者的光照调整应由兽医个体化指导。</p></article>
         </div>
         <div class="callout danger"><span class="signal">!</span><div><strong>疑似卡蛋是急症</strong>努责、笼底、腹部膨大、宽脚站立、尾摆、呼吸困难或泄殖腔组织外翻，都应立即急诊，不要按摩腹部或自行拉蛋。</div></div>
@@ -892,7 +855,7 @@
       <section class="guide-section searchable" id="handfeeding">
         <header class="section-head">
           <div class="num">11</div>
-          <div><h2>幼鸟手养：最高风险章节</h2><p class="section-intro">能由健康亲鸟稳定育雏时，亲鸟育雏通常是首选。“从 0 天手养更亲人”不是值得冒险的理由；亲人来自长期安全互动，不来自剥夺正常育雏。</p></div>
+          <div><h2>幼鸟手养：最高风险章节</h2><p class="section-intro">能由健康亲鸟稳定育雏时，亲鸟育雏通常是首选。不要为了追求亲人而从零日龄开始手养；稳定的亲人关系来自长期安全互动，而不是剥夺正常育雏。</p></div>
         </header>
         <div class="callout danger"><span class="signal">⚠</span><div><strong>不要把通用数字当处方</strong>育雏箱温湿度、奶粉浓度、单次量、频率和断奶节奏都随物种、日龄、体重、环境与疾病变化。本指南不提供盲插喂食管、嗉囊穿刺、冲洗或家庭配药步骤。</div></div>
         <div class="grid-3">
@@ -904,7 +867,6 @@
           <summary>如果不得不照顾未断奶幼鸟</summary>
           <div class="detail-body"><ol class="clean"><li>当天联系鸟类兽医或有医疗协作的合格救护人员，确认物种、日龄与当前状态。</li><li>使用专用商业育雏配方和经验证的器具，严格执行该个体的书面方案。</li><li>每次喂食前后称重并记录嗉囊排空、粪便、求食反应与配方批次。</li><li>无求食反应、排空变慢、呕吐、喘、突然失重或低体温时，停止强喂并急诊。</li><li>断奶应由幼鸟逐步自主完成，不能靠减少喂食逼迫。</li></ol></div>
         </details>
-        <span class="source">鹦鹉0天手养秘籍：用于识别育雏流程与高风险点</span><span class="source">鸟类基础临床手册：误吸、嗉囊与营养并发症</span>
       </section>
 
       <section class="guide-section searchable" id="species">
@@ -920,7 +882,7 @@
           <article class="card"><div class="species-name"><h3>凤头 / 金刚</h3><span>✦</span></div><p>极高的空间、噪声、啃咬与终身安置成本；强喙意味着玩具和家庭结构必须经得住破坏并可安全替换。</p><span class="pill">终身级承诺</span></article>
           <article class="card"><div class="species-name"><h3>吸蜜鹦鹉</h3><span>✺</span></div><p>需专用花蜜/吸蜜配方，不适用普通种子或颗粒比例；排泄含水多，清洁频率和食物卫生要求更高。</p><span class="pill">专科饮食</span></article>
         </div>
-        <p class="small muted" style="margin-top:13px">《世界鹦鹉图鉴》覆盖数百种鹦鹉的分布与生态，提醒我们：鹦鹉不是单一模板。实际饲养应再查该物种的自然食性、活动方式、社会结构和保护/贸易法规。</p>
+        <p class="small muted" style="margin-top:13px">不同鹦鹉在自然食性、活动方式、社会结构、寿命和环境需求上差异很大。实际饲养必须以具体物种为单位补充研究，并确认当地保护与贸易规定。</p>
       </section>
 
       <section class="guide-section searchable" id="checklists">
@@ -961,33 +923,9 @@
         <button class="reset-checks" id="resetChecks" type="button">清空所有勾选</button>
       </section>
 
-      <section class="guide-section searchable method" id="sources">
-        <header class="section-head">
-          <div class="num">14</div>
-          <div><h2>资料来源与使用边界</h2><p class="section-intro">本页是九本资料的综合改写，不是逐书摘抄。出现冲突时，优先采用较新的临床兽医资料；旧图谱与民间手养资料用于定位风险，不直接沿用药物剂量或侵入性操作。</p></div>
-        </header>
-        <div class="grid-3">
-          <div><h3>① 临床优先</h3><p class="muted">以《鸟类基础临床手册》的营养、急救、诊断与行为医学框架作为安全底座。</p></div>
-          <div><h3>② 多书交叉</h3><p class="muted">日常照护与行为建议至少用兽医监修资料或多个独立来源核对。</p></div>
-          <div><h3>③ 风险隔离</h3><p class="muted">不输出家庭用药剂量、盲插管、嗉囊侵入操作和未经诊断的治疗方案。</p></div>
-        </div>
-        <div class="source-list">
-          <div class="source-item"><strong>《鸟类基础临床手册》</strong><span>临床主证据：饲养、营养、行为、急救、疾病与诊断。</span></div>
-          <div class="source-item"><strong>《鸟医生的养鸟小百科》</strong><span>家庭健康观察、居家危险与日常照护。</span></div>
-          <div class="source-item"><strong>《鳥類專科獸醫監修_鸚鵡》</strong><span>兽医监修的入门准备、生活管理与寿命意识。</span></div>
-          <div class="source-item"><strong>《第一次養鸚鵡就戀愛了》</strong><span>居家互动、饮食转化、繁殖诱因与生活案例。</span></div>
-          <div class="source-item"><strong>《当然问鹦鹉才清楚》</strong><span>身体语言、选择权、正向互动与行为视角。</span></div>
-          <div class="source-item"><strong>《鹦鹉有话说》</strong><span>行为案例、危险食物与植物清单的交叉核对。</span></div>
-          <div class="source-item"><strong>《世界鹦鹉图鉴 全新美耐版》</strong><span>物种、分布、生态差异与保育背景。</span></div>
-          <div class="source-item"><strong>《观赏鸟病诊疗原色图谱》</strong><span>症状图像与疾病类别索引；旧版药疗内容不直接采用。</span></div>
-          <div class="source-item"><strong>《鹦鹉0天手养秘籍》</strong><span>育雏流程与事故风险识别；不转写高风险操作和剂量。</span></div>
-        </div>
-        <div class="callout" style="margin-bottom:0"><span class="signal">✚</span><div><strong>医疗声明</strong>本指南用于教育和就诊准备，不能替代鸟类兽医的面对面检查。药物、检验、隔离期限、特殊饮食和育雏方案必须按具体物种与个体决定。</div></div>
-      </section>
-
       <footer>
-        <p>鹦鹉饲养指南 · 九本资料综合版 · 2026-07-13</p>
-        <p>内容已按“临床证据优先、家庭可执行、安全边界明确”的原则整理。</p>
+        <p>鹦鹉饲养指南 · 家庭综合版 · 2026-08-04</p>
+        <p>本指南用于日常照护教育和就诊准备，不能替代鸟类兽医的面对面检查。药物、检验、隔离、特殊饮食和育雏方案必须根据具体物种与个体决定。</p>
       </footer>
     </main>
   </div>
