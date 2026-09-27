@@ -9,6 +9,7 @@ const js = await read('handbook/guide.js');
 const favicon = 'data:image/svg+xml;base64,' + Buffer.from(await read('public/favicon.svg')).toString('base64');
 const photo = async name => 'data:image/jpeg;base64,' + (await readFile(new URL(`handbook/assets/${name}.jpg`, root))).toString('base64');
 const photos = {PHOTO_BUDGIE: await photo('budgerigar'), PHOTO_CONURE: await photo('green-cheeked-conure')};
+const heroImage = 'data:image/webp;base64,' + (await readFile(new URL('handbook/assets/warm-parrot-hero.webp', root))).toString('base64');
 const escape = s => s.replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;');
 const nav = sections.map((s,i)=>`<a href="#${s.id}"><span>${String(i+1).padStart(2,'0')}</span>${s.title.split('：')[0]}</a>`).join('');
 const content = sections.map((s,i)=>`<section class="chapter ${s.id === 'emergency' ? 'chapter-emergency' : ''}" id="${s.id}" aria-labelledby="title-${s.id}"><header class="chapter-heading"><span class="chapter-number" aria-hidden="true">${String(i+1).padStart(2,'0')}</span><div><h2 id="title-${s.id}">${s.title}</h2><p class="chapter-intro">${s.intro}</p></div></header><div class="essentials"><span class="label">先记住这${s.essentials.length === 1 ? '一点' : '几件事'}</span><ul>${s.essentials.map(x=>`<li>${x}</li>`).join('')}</ul></div>${s.body.replace('头部波纹、弯喙与长尾等外形特征','黄色头部、蓝色鼻膜、黑色斑纹与弯喙的面部特写')}</section>`).join('\n');
@@ -29,6 +30,8 @@ ${content}
 <script>${js}</script></body></html>`;
 html = html.replace('<div id="checkGroups"></div>',`<div id="checkGroups">${checks}</div>`).replace(/\{\{(PHOTO_[A-Z]+)\}\}/g,(_,name)=>photos[name]);
 html = html.replace('<title>', `<link rel="icon" href="${favicon}"><title>`);
+html = html.replace('<section class="intro">', '<section class="intro"><div class="hero-composition"><div class="hero-copy">');
+html = html.replace('<div class="quick-links">', `</div><figure class="hero-art"><img src="${heroImage}" width="1536" height="1024" alt="温暖晨光里的虎皮与绿颊小太阳，各自站在独立木栖架上。AI 创作插画。" loading="eager" fetchpriority="high" decoding="async"><figcaption>AI 创作插画 · 非混养示范</figcaption></figure></div><div class="quick-links">`);
 html = html.replace('<p id="searchStatus"', '<a id="searchEmergency" class="search-emergency" href="#emergency" hidden>出现呼吸困难、持续出血或明显虚弱？先看急症行动与转运。</a><p id="searchStatus"');
 html = html.replace('<button type="button" data-open="toc" aria-haspopup="dialog"><span class="nav-icon" aria-hidden="true">☰</span>目录</button>', '<a href="#inlineToc" data-open="toc" aria-haspopup="dialog"><span class="nav-icon" aria-hidden="true">☰</span>目录</a>');
 html = html.replace('搜索、清单保存和主题切换需在支持脚本的浏览器中使用。', '请使用正文上方的完整目录。勾选不会保存；可联网下载完整 PDF，保存在手机文件中阅读。');

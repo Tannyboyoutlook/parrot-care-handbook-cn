@@ -8,7 +8,7 @@
 - `handbook/guide.css`：浅色 / 深色、手机与打印样式。
 - `handbook/guide.js`：搜索、导航、本地清单、主题、打印与离线下载。
 - `handbook/practical.mjs`：物种阅读路线、用品验收、进食观察与操作图。
-- `handbook/assets/`：两张已核对的 CC0 实拍图。
+- `handbook/assets/`：两张已核对的 CC0 实拍图，以及一张明确标注的 AI 创作头图。全部内嵌，离线不依赖图片服务器。
 - `scripts/build-guide.mjs`：将以上内容与图像嵌入 HTML，同步生成三个内容相同的文件。
 
 不要直接修改生成后的 `docs/index.html`、`public/鹦鹉饲养指南.html` 或根目录 `鹦鹉饲养指南.html`；改源文件后重新生成，避免副本不一致。

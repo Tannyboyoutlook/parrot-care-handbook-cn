@@ -10,11 +10,14 @@ test('all delivery copies are generated identically and fit a modest offline siz
   for(const f of files.slice(1)) assert.equal(await readFile(new URL(f,import.meta.url),'utf8'),html);
   assert.ok(Buffer.byteLength(html)<900_000);
 });
-test('16 chapters, scoped checklist groups, diagrams, and two embedded real photos',()=>{
+test('16 chapters, scoped checklist groups, diagrams, two real photos and one AI hero',()=>{
   assert.equal(sections.length,16);
   assert.equal((html.match(/class="chapter /g)||[]).length,16);
-  assert.equal((html.match(/<img /g)||[]).length,2);
+  assert.equal((html.match(/<img /g)||[]).length,3);
   assert.equal((html.match(/src="data:image\/jpeg;base64,/g)||[]).length,2);
+  assert.equal((html.match(/src="data:image\/webp;base64,/g)||[]).length,1);
+  assert.match(html,/class="hero-art"/);
+  assert.match(html,/AI 创作插画 · 非混养示范/);
   assert.ok((html.match(/<figure class="diagram">/g)||[]).length>=6);
   const expectedDetails = sections.reduce((n,s)=>n+(s.body.match(/<details>/g)||[]).length,0);
   assert.ok(expectedDetails >= 35);

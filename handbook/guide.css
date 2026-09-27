@@ -551,6 +551,46 @@ figure {
   max-width: 640px;
   color: var(--muted);
 }
+.hero-composition {
+  display: grid;
+  grid-template-columns: minmax(0, 1.12fr) minmax(0, 1fr);
+  align-items: center;
+  gap: 24px;
+}
+.hero-copy {
+  min-width: 0;
+}
+.hero-copy h1 {
+  font-size: clamp(2rem, 3.1vw, 2.8rem);
+}
+.hero-art {
+  min-width: 0;
+  margin: 0;
+}
+.hero-art img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 24px;
+  background: #f6edda;
+}
+.hero-art figcaption {
+  margin-top: 6px;
+  color: var(--muted);
+  font-size: 0.75rem;
+  text-align: right;
+}
+@media (max-width: 1100px) {
+  .hero-composition {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .hero-art {
+    grid-row: 1;
+    width: min(100%, 560px);
+    justify-self: center;
+  }
+}
 .quick-links {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -1650,6 +1690,18 @@ mark {
   }
   .intro h1 {
     font-size: 26pt;
+  }
+  .hero-composition {
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+    gap: 18px;
+    break-inside: avoid;
+  }
+  .hero-art {
+    grid-row: auto;
+    width: 100%;
+  }
+  .hero-copy h1 {
+    font-size: 23pt;
   }
   .chapter {
     padding: 24px 0;
