@@ -1,0 +1,27 @@
+name: Verify handbook
+on:
+  push:
+    branches: [main]
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  guide:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile --ignore-scripts
+      - run: pnpm exec playwright install --with-deps chromium
+      - run: sudo apt-get update && sudo apt-get install -y fonts-noto-cjk
+      - run: pnpm test
+      - name: Confirm committed HTML comes from current source
+        run: git diff --exit-code -- docs/index.html public/鹦鹉饲养指南.html 鹦鹉饲养指南.html
+      - name: Check versioned PDF matches this HTML release
+        run: node scripts/check-release.mjs

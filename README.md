@@ -7,6 +7,7 @@
 - `handbook/content.mjs`：16 个章节、步骤说明与清单。
 - `handbook/guide.css`：浅色 / 深色、手机与打印样式。
 - `handbook/guide.js`：搜索、导航、本地清单、主题、打印与离线下载。
+- `handbook/practical.mjs`：物种阅读路线、用品验收、进食观察与操作图。
 - `handbook/assets/`：两张已核对的 CC0 实拍图。
 - `scripts/build-guide.mjs`：将以上内容与图像嵌入 HTML，同步生成三个内容相同的文件。
 
@@ -18,19 +19,30 @@
 npm run guide:build
 npm run guide:test
 npm run dev
-npm test
+npm test              # 生成手册 + 结构检查 + Chromium 交互回归
+npm run guide:release # 上述检查 + 生成完整 PDF 和版本校验清单
+node scripts/check-release.mjs
+npm run app:test      # 可选：原应用外壳单独构建与验证
 ```
 
-保留原项目依赖与 pnpm 锁文件，不需要新增前端依赖。`npm run build` 会先生成手册，再执行原 Vinext 构建。
+使用 pnpm 锁文件安装：`pnpm install --frozen-lockfile --ignore-scripts`。初次运行浏览器检查前执行 `pnpm exec playwright install chromium`；Linux 可加 `--with-deps` 并安装 `fonts-noto-cjk`。
+
+`npm run build` 只生成静态手册；`npm run app:build` 才构建原 Vinext 外壳。Playwright 与 Prettier 仅为开发工具，不加载到读者页面。源码可用 `pnpm exec prettier --write handbook/guide.css` 格式化。
 
 ## 发布与离线
 
 - GitHub Pages 使用 `main` 分支的 `docs/index.html`，推送后由 GitHub Pages 构建发布。
 - 应用预览通过 `app/page.tsx` 嵌入 `public/鹦鹉饲养指南.html`。
 - 根目录 HTML 本身就是完整离线版，包含图片、CSS 与 JavaScript。支持脚本的本地浏览器可使用搜索、主题与临时 / 持久清单。
+- 手机禁用脚本时提供原生完整目录，隐藏无法工作的按钮；页面上的 PDF 链接无需脚本。
+- `docs/parrot-care-handbook.pdf` 为预生成完整 PDF；`output/pdf/鹦鹉饲养指南.pdf` 为本地交付副本，`public/` 保留应用预览副本。
+- PDF 由同一 HTML 生成，包含完整展开内容。`docs/release.json` 记录版本和 HTML/PDF 校验值；源码修改后需重新执行 `guide:release`。
+- `.github/workflows/verify.yml` 在提交和 PR 时运行静态、交互与产物一致性检查。当前 Pages 仍使用分支 `/docs` 发布，这个检查不是分支保护或发布审批门禁。
 - 微信内可能不允许直接下载或运行本地 HTML；请使用系统浏览器或电脑下载。单纯收藏网页不等于保存离线内容。
 - 清单按本机日期和周一起始日分组，仅保存在当前浏览器，不上传、不跨设备同步。重要健康记录请单独保存。
 
 ## 内容与测试边界
 
 内容核对与图像许可见 `handbook/EDITORIAL.md`。本手册不是兽医诊断或处方。真实手机微信仍需用户在设备上验收；桌面浏览器窄屏模拟不能替代真机证明。
+
+逐项证据与未覆盖内容见 `handbook/EVIDENCE.md`。该内部表不在读者页面恢复原书摘录，也不声称内容已全部获得兽医签署审校。

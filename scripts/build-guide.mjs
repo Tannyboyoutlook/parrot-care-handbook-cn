@@ -1,6 +1,6 @@
 import {readFile, writeFile, mkdir} from 'node:fs/promises';
 import {createHash} from 'node:crypto';
-import {sections, version, checkGroups} from '../handbook/content.mjs';
+import {sections, version, checkGroups, readingRoutes} from '../handbook/content.mjs';
 
 const root = new URL('../', import.meta.url);
 const read = path => readFile(new URL(path, root), 'utf8');
@@ -18,6 +18,9 @@ let html = `<!doctype html>
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="description" content="面向零基础新手的虎皮与小太阳鹦鹉照护手册：接鸟准备、饮食、放飞安全、行为、健康与急症，支持手机和完整离线阅读。"><meta name="theme-color" content="#f4efe4"><title>鹦鹉饲养指南｜虎皮与小太阳·新手图解版</title><style>${css}</style></head>
 <body><a href="#main" class="skip-link">跳到正文</a><header class="topbar"><a class="brand" href="#top"><span class="brand-icon" aria-hidden="true">羽</span><span>鹦鹉照护手册<span id="currentChapter" class="current-label">虎皮 · 小太阳</span></span></a><div class="toolbar"><button type="button" class="top-search" data-open="search" aria-label="搜索手册" aria-haspopup="dialog"><span aria-hidden="true">⌕</span><span class="search-label">搜索注意事项</span><span class="keyhint" aria-hidden="true">/</span></button><button type="button" id="themeToggle" aria-pressed="false" aria-label="切换到深色模式">◐</button><button class="desktop-only" type="button" data-open="toc" aria-haspopup="dialog">目录</button></div><div class="progress" id="progressBar" aria-hidden="true"></div></header>
 <div class="layout" id="top"><aside class="sidebar" aria-label="桌面章节目录"><p class="eyebrow">一本随手查的照护手册</p><nav class="toc-list">${nav}</nav><a class="side-emergency" href="#emergency">急症：先看这里 ↗</a></aside><main class="main" id="main"><noscript><p class="no-js">当前查看器未运行脚本。正文和图片仍可离线阅读；可展开各节内容。搜索、清单保存和主题切换需在支持脚本的浏览器中使用。</p></noscript><div class="resume" id="resumeCard" hidden><a id="resumeLink" href="#start">继续上次阅读</a><button type="button" id="dismissResume">暂不继续</button></div><section class="intro"><p class="eyebrow">零基础也能一步步学 · 图解照护指南</p><h1>从第一天开始，<br><em>学会照顾你的鹦鹉。</em></h1><p>重点认识虎皮与小太阳。先做对安全、吃喝和观察，再慢慢学会相处；不懂的词、拿不准的操作，都可以随时回来查。</p><div class="quick-links"><a href="#start">准备接鸟<span>用品与交接事项</span></a><a href="#species">认识我的鸟<span>虎皮 / 小太阳专属</span></a><a href="#checklists">今天怎么照顾<span>每日与每周清单</span></a><a class="urgent" href="#emergency">身体出现异常<span>急症信号与转运</span></a></div><p class="read-note">先读每节的要点，再展开具体步骤。<a href="#newbird">鸟刚到家？</a>　<a href="#checklists">需要离线版？</a></p></section>
+<div class="edition-note"><span>更新于 ${version}</span><a href="https://tannyboyoutlook.github.io/parrot-care-handbook-cn/">查看官网最新版本</a><a href="https://tannyboyoutlook.github.io/parrot-care-handbook-cn/parrot-care-handbook.pdf" download>下载完整 PDF（需联网）</a></div>
+${readingRoutes}
+<details class="inline-toc" id="inlineToc"><summary>展开完整目录 · 无需脚本</summary><nav class="toc-list" aria-label="正文完整目录">${nav}</nav></details>
 ${content}
 <footer><div class="footer-row"><strong>鹦鹉照护手册 · 新手图解版</strong><span>内容版本 ${version} · ${sections.length} 个主题</span><a href="#top">回到开头 ↑</a></div><p>用于日常照护教育与就诊准备，不能替代鸟类兽医检查。医疗、特殊饮食、隔离与育雏方案应按具体物种与个体决定。</p><p class="credits">真实照片：虎皮 © Аимаина хикари；绿颊锥尾 © Hugo Hulsberg（hhulsberg）。均以 CC0 1.0 提供；仅缩小图像尺寸。<a href="https://commons.wikimedia.org/wiki/File:Melopsittacus_undulatus_Kiev2.JPG" rel="noopener noreferrer" target="_blank">虎皮照片信息</a> · <a href="https://commons.wikimedia.org/wiki/File:Green-cheeked_Parakeet_(Pyrrhura_molinae_australis),_Santa_B%C3%A1rbara,_Jujuy,_Argentina_1.jpg" rel="noopener noreferrer" target="_blank">绿颊照片信息</a>。图解为独立编排的教学示意，不是疾病诊断图。</p><p>离线阅读不需要联网；照片信息链接需要联网。任务记录仅留在当前设备。</p></footer></main></div>
 <nav class="bottom-nav" aria-label="手机快捷导航"><button type="button" data-open="toc" aria-haspopup="dialog"><span class="nav-icon" aria-hidden="true">☰</span>目录</button><button type="button" data-open="search" aria-haspopup="dialog"><span class="nav-icon" aria-hidden="true">⌕</span>搜索</button><a href="#checklists"><span class="nav-icon" aria-hidden="true">✓</span>清单</a><a class="urgent" href="#emergency"><span class="nav-icon" aria-hidden="true">!</span>急症</a></nav>
@@ -26,6 +29,9 @@ ${content}
 <script>${js}</script></body></html>`;
 html = html.replace('<div id="checkGroups"></div>',`<div id="checkGroups">${checks}</div>`).replace(/\{\{(PHOTO_[A-Z]+)\}\}/g,(_,name)=>photos[name]);
 html = html.replace('<title>', `<link rel="icon" href="${favicon}"><title>`);
+html = html.replace('<p id="searchStatus"', '<a id="searchEmergency" class="search-emergency" href="#emergency" hidden>出现呼吸困难、持续出血或明显虚弱？先看急症行动与转运。</a><p id="searchStatus"');
+html = html.replace('<button type="button" data-open="toc" aria-haspopup="dialog"><span class="nav-icon" aria-hidden="true">☰</span>目录</button>', '<a href="#inlineToc" data-open="toc" aria-haspopup="dialog"><span class="nav-icon" aria-hidden="true">☰</span>目录</a>');
+html = html.replace('搜索、清单保存和主题切换需在支持脚本的浏览器中使用。', '请使用正文上方的完整目录。勾选不会保存；可联网下载完整 PDF，保存在手机文件中阅读。');
 if (/\{\{PHOTO_/.test(html)) throw new Error('Unresolved image');
 for (const target of ['docs/index.html','public/鹦鹉饲养指南.html','鹦鹉饲养指南.html']) {
   await mkdir(new URL(target.includes('/') ? target.slice(0,target.lastIndexOf('/')) + '/' : './',root), {recursive:true});

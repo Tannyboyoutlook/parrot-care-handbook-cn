@@ -25,7 +25,8 @@ test('no runtime CDN, original extracts, or unresolved placeholders',()=>{
   assert.doesNotMatch(html,/<(?:script|img)[^>]*src="https?:/);
   assert.doesNotMatch(html,/<link[^>]*href="https?:/);
   const withoutImages=html.replace(/data:image\/jpeg;base64,[A-Za-z0-9+/=]+/g,'embedded-photo');
-  assert.doesNotMatch(withoutImages,/\{\{PHOTO_|<blockquote|原文摘录|引用原文|\bOCR\b|\.pdf["#?]/);
+  assert.doesNotMatch(withoutImages,/\{\{PHOTO_|<blockquote|原文摘录|引用原文|\bOCR\b/);
+  assert.match(html,/parrot-care-handbook\.pdf/);
   assert.doesNotMatch(html,/conic-gradient|约 60–70%|约 5–10%/);
 });
 test('ids are unique and every in-page destination exists',()=>{

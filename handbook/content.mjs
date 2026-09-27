@@ -1,5 +1,7 @@
 // Authoring source: independently summarized care guidance, not book excerpts.
-export const version = '2026-09-07';
+import {practicalGuides} from './practical.mjs';
+export {readingRoutes} from './practical.mjs';
+export const version = '2026-09-27';
 const list = (items, ordered = false) => `<${ordered ? 'ol' : 'ul'}>${items.map(x => `<li>${x}</li>`).join('')}</${ordered ? 'ol' : 'ul'}>`;
 const box = (title, text, kind = '') => `<aside class="note ${kind}"><strong>${title}</strong><p>${text}</p></aside>`;
 const detail = (title, items, ordered = false) => `<details><summary>${title}</summary><div class="detail-body">${Array.isArray(items) ? list(items, ordered) : items}</div></details>`;
@@ -368,7 +370,7 @@ section('checklists', '照护清单：每天做完，每周回看', '清单只�
     '离线：把完整 HTML 保存到“文件”或电脑目录，再选择支持本地网页的浏览器打开；图片、目录与正文无需网络。仅收藏在线链接不等于已经保存离线版。',
     '手机文件预览器可能只显示静态内容，或不支持脚本与本地存储。这时正文仍可阅读，交互功能需换支持本地 HTML 的浏览器；打印为 PDF 可作静态备份。',
     '离线文件不会自动更新。页面底部显示版本日期；网站更新后重新下载完整文件。照片授权链接和线上网站链接需要联网，但不影响离线读正文。'
-  ])}</div></details><div class="utility-row"><button type="button" id="downloadGuide">下载完整离线 HTML</button><button type="button" id="printButton">打印 / 存为 PDF</button><button type="button" id="expandAll">展开全部详细内容</button></div><p id="downloadStatus" role="status" class="muted"></p>`
+  ])}</div></details><div class="utility-row"><button type="button" id="downloadGuide">下载完整离线 HTML</button><a class="button" href="https://tannyboyoutlook.github.io/parrot-care-handbook-cn/parrot-care-handbook.pdf" download>下载已排版 PDF（需联网）</a><button type="button" id="printButton">打印 / 存为 PDF</button><button type="button" id="expandAll">展开全部详细内容</button></div><p id="downloadStatus" role="status" class="muted"></p><p>HTML 保留搜索和清单；PDF 适合手机文件查看器，无需运行脚本。PDF 与官网链接需联网下载，保存后可离线阅读。</p><details><summary>2026-09-27 更新了什么？</summary><div class="detail-body"><ul><li>补齐术语和图解搜索，异常关键词增加急症入口。</li><li>修复弹窗打开时打印内容被截断、离线版展开按钮状态错误。</li><li>加入无脚本目录、虎皮与小太阳阅读路线、用品验收表和操作图。</li><li>提供完整静态 PDF，方便保存到手机文件中。</li></ul><p><a href="https://tannyboyoutlook.github.io/parrot-care-handbook-cn/">联网查看官网最新版本</a>；离线文件不会自动更新。</p></div></details>`
 ),
 section('glossary', '新手词典：把术语说成人话', '遇到陌生词可以直接用搜索，也可以在这里快速对照。这里解释词义，不据此判断某只鸟的疾病。', [
   '看见一个术语，不等于已经有诊断；用具体观察描述给兽医。'
@@ -389,6 +391,10 @@ section('glossary', '新手词典：把术语说成人话', '遇到陌生词可�
   ].map(([a,b])=>`<div><dt>${a}</dt><dd>${b}</dd></div>`).join('')}</dl>`
 )
 ];
+
+for (const [id, body] of Object.entries(practicalGuides)) {
+  sections.find(section => section.id === id).body += body;
+}
 
 export const checkGroups = [
   {id:'daily',title:'每日照护',items:[['water','换水并刷洗食水容器，污染后再次更换'],['food','确认实际吃够主食，检查空壳与剩食'],['fresh','及时撤走鲜食和湿粮，没有隔夜留笼'],['observe','观察精神、呼吸、排便，按计划记录体重'],['paper','更换笼底纸，检查脚、玩具和门锁'],['flight','安全检查后安排有人监督的活动'],['enrich','提供合适的陪伴、觅食或短训练'],['sleep','准备安静睡眠，确认鸟回到安全位置']]},
