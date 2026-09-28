@@ -1705,12 +1705,25 @@ mark {
     padding-top: 24px;
   }
   .hero-composition {
-    grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
-    gap: 30px;
+    position: relative;
+    isolation: isolate;
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+    min-height: 530px;
+    gap: 0;
+    align-items: center;
+  }
+  .hero-copy {
+    position: relative;
+    z-index: 1;
+    padding-block: 22px 36px;
+  }
+  .hero-copy > p:not(.eyebrow) {
+    max-width: 450px;
   }
   .hero-copy h1 {
     font-family: var(--editorial-font);
-    font-size: clamp(2.7rem, 4.1vw, 3.8rem);
+    font-size: clamp(2.7rem, 4.7vw, 4.2rem);
     font-weight: 700;
     line-height: 1.24;
     letter-spacing: -0.025em;
@@ -1735,22 +1748,41 @@ mark {
     background: var(--amber);
   }
   .hero-art {
+    position: relative;
     grid-row: auto;
-    width: 100%;
-    max-width: 420px;
-    justify-self: center;
+    width: 125%;
+    max-width: none;
+    margin-left: 0;
+    justify-self: end;
   }
   .hero-art img {
-    border-radius: 50%;
-    aspect-ratio: 1;
+    border-radius: 0;
+    aspect-ratio: 3 / 2;
     object-fit: contain;
-    background: #f6edda;
-    border: 10px solid #e3e8d4;
-    box-shadow: 0 16px 40px #17372e0b;
+    background: transparent;
+    border: 0;
+    box-shadow: none;
+    mix-blend-mode: multiply;
+    -webkit-mask-image: radial-gradient(ellipse 65% 72% at 50% 48%, #000 45%, transparent 74%);
+    mask-image: radial-gradient(ellipse 65% 72% at 50% 48%, #000 45%, transparent 74%);
   }
   .hero-art figcaption {
-    text-align: center;
+    text-align: right;
+    margin: -12px 12% 0 0;
+    font-size: 0.75rem;
+  }
+  [data-theme="dark"] .hero-art img {
+    mix-blend-mode: normal;
+  }
+  .intro {
+    overflow: hidden;
+  }
+  .handbook-overview {
     margin-top: 12px;
+    background: transparent;
+    border-inline: 0;
+    border-radius: 0;
+    box-shadow: none;
   }
   .topbar .toolbar button {
     border-radius: 999px;
@@ -1804,7 +1836,11 @@ mark {
 @media screen and (max-width: 600px) {
   .hero-composition {
     grid-template-columns: 1fr;
-    gap: 24px;
+    min-height: 0;
+    gap: 0;
+  }
+  .hero-copy {
+    padding-block: 0 8px;
   }
   .hero-copy h1 {
     font-size: clamp(2.35rem, 9.8vw, 3.5rem);
@@ -1827,15 +1863,19 @@ mark {
     gap: 12px;
   }
   .hero-art {
-    width: min(78%, 290px);
+    width: calc(100% + 32px);
+    margin: 0 -16px;
   }
   .hero-art img {
-    border-width: 7px;
+    border: 0;
+  }
+  .hero-art figcaption {
+    margin: -6px 24px 12px;
   }
   .handbook-overview {
     margin-top: 26px;
     padding: 18px 0;
-    border-radius: 16px;
+    border-radius: 0;
   }
   .handbook-overview > div {
     padding: 0 6px;
