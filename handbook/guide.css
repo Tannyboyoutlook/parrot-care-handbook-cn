@@ -256,6 +256,7 @@ html:not(.js-ready) .check-meter {
   scroll-margin-top: 0;
 }
 :root {
+  --editorial-font: "Songti SC", "STSong", "Noto Serif CJK SC", "SimSun", serif;
   --paper: #f4efe4;
   --surface: #fffcf5;
   --ink: #17372e;
@@ -1630,6 +1631,226 @@ mark {
   }
   .footer-row {
     display: block !important;
+  }
+}
+/* Editorial presentation: readable text, warm paper, generous chapter rhythm. */
+.hero-copy h1 > span,
+.hero-copy h1 > em {
+  display: block;
+}
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 26px;
+}
+.hero-actions a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  min-height: 48px;
+  padding: 10px 22px;
+  border: 1px solid var(--green);
+  border-radius: 999px;
+  font-size: 0.9375rem;
+  font-weight: 650;
+  text-decoration: none;
+}
+.hero-primary {
+  color: var(--paper);
+  background: var(--green);
+}
+.hero-secondary {
+  color: var(--green);
+  background: transparent;
+}
+.handbook-overview {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin: 36px 0 26px;
+  padding: 24px 0;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+.handbook-overview > div {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  justify-content: center;
+  padding: 0 12px;
+  text-align: center;
+}
+.handbook-overview > div + div {
+  border-left: 1px solid var(--line);
+}
+.handbook-overview dt {
+  color: var(--muted);
+  font-size: 0.8125rem;
+}
+.handbook-overview dd {
+  margin: 0;
+  color: var(--ink);
+  font: 600 2.6rem/1.2 var(--editorial-font);
+}
+.handbook-overview dd span {
+  display: block;
+  margin: 8px 0 4px;
+  font: 500 0.9375rem/1.6 -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+}
+@media screen {
+  .intro {
+    padding-top: 24px;
+  }
+  .hero-composition {
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+    gap: 30px;
+  }
+  .hero-copy h1 {
+    font-family: var(--editorial-font);
+    font-size: clamp(2.7rem, 4.1vw, 3.8rem);
+    font-weight: 700;
+    line-height: 1.24;
+    letter-spacing: -0.025em;
+    margin: 0 0 24px;
+  }
+  .intro h1 em {
+    font-style: normal;
+    color: var(--green);
+  }
+  .hero-copy .eyebrow {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    font-size: 0.8125rem;
+    letter-spacing: 0.06em;
+  }
+  .hero-copy .eyebrow::before {
+    content: "";
+    width: 26px;
+    height: 2px;
+    flex: 0 0 auto;
+    background: var(--amber);
+  }
+  .hero-art {
+    grid-row: auto;
+    width: 100%;
+    max-width: 420px;
+    justify-self: center;
+  }
+  .hero-art img {
+    border-radius: 50%;
+    aspect-ratio: 1;
+    object-fit: contain;
+    background: #f6edda;
+    border: 10px solid #e3e8d4;
+    box-shadow: 0 16px 40px #17372e0b;
+  }
+  .hero-art figcaption {
+    text-align: center;
+    margin-top: 12px;
+  }
+  .topbar .toolbar button {
+    border-radius: 999px;
+  }
+  .brand {
+    font-family: var(--editorial-font);
+    letter-spacing: 0.02em;
+  }
+  .current-label {
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", sans-serif;
+    letter-spacing: 0;
+  }
+  .chapter-heading h2,
+  .reading-routes h2 {
+    font-family: var(--editorial-font);
+    font-weight: 700;
+    letter-spacing: 0.015em;
+    line-height: 1.45;
+  }
+  .chapter-heading h2 {
+    font-size: 1.95rem;
+  }
+  .chapter-number {
+    font-family: var(--editorial-font);
+    font-size: 1.05rem;
+    background: var(--soft);
+    border-color: transparent;
+  }
+  .quick-links a,
+  .route-grid article {
+    border-radius: 16px;
+    box-shadow: 0 3px 12px #17372e04;
+  }
+  .quick-links a:hover,
+  .hero-actions a:hover {
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+  .sidebar .toc-list a {
+    border-radius: 999px;
+  }
+  .sidebar .eyebrow {
+    font-size: 0.75rem;
+    letter-spacing: 0.07em;
+  }
+}
+@media screen and (min-width: 901px) and (max-width: 1100px) {
+  .hero-copy h1 { font-size: 2.6rem; }
+  .hero-composition { gap: 20px; }
+}
+@media screen and (max-width: 600px) {
+  .hero-composition {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .hero-copy h1 {
+    font-size: clamp(2.35rem, 9.8vw, 3.5rem);
+    line-height: 1.25;
+    margin-bottom: 18px;
+  }
+  .hero-copy .eyebrow {
+    font-size: 0.75rem;
+    letter-spacing: 0;
+  }
+  .hero-copy > p:not(.eyebrow) {
+    font-size: 1rem;
+  }
+  .hero-actions {
+    gap: 10px;
+    margin-top: 20px;
+  }
+  .hero-actions a {
+    padding: 10px 16px;
+    gap: 12px;
+  }
+  .hero-art {
+    width: min(78%, 290px);
+  }
+  .hero-art img {
+    border-width: 7px;
+  }
+  .handbook-overview {
+    margin-top: 26px;
+    padding: 18px 0;
+    border-radius: 16px;
+  }
+  .handbook-overview > div {
+    padding: 0 6px;
+  }
+  .handbook-overview dd { font-size: 2.2rem; }
+  .handbook-overview dd span { font-size: 0.8125rem; }
+  .handbook-overview dt { font-size: 0.75rem; }
+  .chapter-heading { gap: 12px; }
+  .chapter-heading h2 { font-size: 1.65rem; }
+  .chapter-number { min-width: 36px; height: 36px; }
+}
+@media print {
+  .hero-actions,
+  .handbook-overview {
+    display: none !important;
   }
 }
 @media (prefers-reduced-motion: reduce) {

@@ -38,6 +38,13 @@ test('ids are unique and every in-page destination exists',()=>{
   const anchors=Array.from(html.matchAll(/href="#([^"]+)"/g),m=>m[1]);
   for(const a of anchors) assert.ok(ids.includes(a),'missing '+a);
 });
+test('editorial overview uses current source counts and keeps entry routes',()=>{
+  assert.match(html, /class="hero-actions"/);
+  assert.match(html, /class="handbook-overview"/);
+  assert.ok(html.includes(`<dd>${sections.length}<span>个照护主题</span>`));
+  assert.ok(html.includes(`<dd>${checkGroups.reduce((n,g)=>n+g.items.length,0)}<span>项照护清单</span>`));
+  assert.doesNotMatch(html, /2,136|2136 页/);
+});
 test('standalone script parses and mobile accessibility hooks remain',()=>{
   const script=html.match(/<script>([\s\S]+)<\/script>/)[1];
   assert.doesNotThrow(()=>new vm.Script(script));

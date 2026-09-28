@@ -31,8 +31,11 @@ ${content}
 html = html.replace('<div id="checkGroups"></div>',`<div id="checkGroups">${checks}</div>`).replace(/\{\{(PHOTO_[A-Z]+)\}\}/g,(_,name)=>photos[name]);
 html = html.replace('<title>', `<link rel="icon" href="${favicon}"><title>`);
 html = html.replace('<section class="intro">', '<section class="intro"><div class="hero-composition"><div class="hero-copy">');
+html = html.replace('<h1>从第一天开始，<br><em>学会照顾你的鹦鹉。</em></h1>', '<h1><span>让鹦鹉</span><em>好好生活，</em><span>不只是活着。</span></h1>');
 html = html.replace('<div class="quick-links">', `</div><figure class="hero-art"><img src="${heroImage}" width="1536" height="1024" alt="温暖晨光里的虎皮与绿颊小太阳，各自站在独立木栖架上。AI 创作插画。" loading="eager" fetchpriority="high" decoding="async"><figcaption>AI 创作插画 · 非混养示范</figcaption></figure></div><div class="quick-links">`);
 html = html.replace('<p id="searchStatus"', '<a id="searchEmergency" class="search-emergency" href="#emergency" hidden>出现呼吸困难、持续出血或明显虚弱？先看急症行动与转运。</a><p id="searchStatus"');
+html = html.replace('</div><figure class="hero-art">', '<div class="hero-actions"><a class="hero-primary" href="#start">开始阅读 <span aria-hidden="true">↓</span></a><a class="hero-secondary" href="#emergency">先看急症处理 <span aria-hidden="true">↗</span></a></div></div><figure class="hero-art">');
+html = html.replace('<div class="quick-links">', `<dl class="handbook-overview" aria-label="手册概览"><div><dt>重点陪伴的鸟种</dt><dd>2<span>虎皮 · 小太阳</span></dd></div><div><dt>从入门到日常</dt><dd>${sections.length}<span>个照护主题</span></dd></div><div><dt>把知识变成行动</dt><dd>${checkGroups.reduce((n,g)=>n+g.items.length,0)}<span>项照护清单</span></dd></div></dl><div class="quick-links">`);
 html = html.replace('<button type="button" data-open="toc" aria-haspopup="dialog"><span class="nav-icon" aria-hidden="true">☰</span>目录</button>', '<a href="#inlineToc" data-open="toc" aria-haspopup="dialog"><span class="nav-icon" aria-hidden="true">☰</span>目录</a>');
 html = html.replace('搜索、清单保存和主题切换需在支持脚本的浏览器中使用。', '请使用正文上方的完整目录。勾选不会保存；可联网下载完整 PDF，保存在手机文件中阅读。');
 if (/\{\{PHOTO_/.test(html)) throw new Error('Unresolved image');

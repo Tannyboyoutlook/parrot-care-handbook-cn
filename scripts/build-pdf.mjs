@@ -62,6 +62,7 @@ try {
       {
         version,
         htmlSha256: createHash("sha256").update(html).digest("hex"),
+        pdfSourceHtmlSha256: createHash("sha256").update(html).digest("hex"),
         pdfSha256: createHash("sha256").update(pdf).digest("hex"),
       },
       null,
